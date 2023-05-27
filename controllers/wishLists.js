@@ -4,44 +4,54 @@ const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
 const WishList = require('../models/wishList')
 const Game = require('../models/game')
-const wishlist = require('../models/wishList')
 
 const updateList = async (req, res) => {
-  let wishList = WishList.find({ user: user._id })
-  let game = await Game.find({ gameID: req.params.id })
+  let wishList = await WishList.findOne({ user: req.user._id })
+  let game = await Game.findOne({ gameID: req.params.id })
 
   if (!game) {
-    game = await axios.get(`${DOMAIN}games/${req.params.id}?key=${API_KEY}`)
-      .data
+    const response = await axios.get(
+      `${DOMAIN}games/${req.params.id}?key=${API_KEY}`
+    )
+    game = response.data
+
+    let genres = []
+    let developers = []
+    let platforms = []
+    let gameModes = []
+    game.genres.forEach((genre) => {
+      genres.push(genre.name)
+    })
+    game.developers.forEach((developer) => {
+      developers.push(developer.name)
+    })
+    game.platforms.forEach((platform) => {
+      platforms.push(platform.platform.name)
+    })
+    game.tags.forEach((tag) => {
+      if (['Singleplayer', 'Multiplayer'].includes(tag.name))
+        gameModes.push(tag.name)
+    })
+
     req.body.gameID = game.id
     req.body.name = game.name
     req.body.imageURL = game.background_image
     req.body.playtime = game.playtime
-    req.body.genres = []
-    req.body.developers = []
-    req.body.gameModes = []
+    req.body.genres = genres
+    req.body.developers = developers
+    req.body.gameModes = gameModes
+    req.body.platforms = platforms
     req.body.userRating = game.rating
     req.body.metacritic = game.metacritic
     req.body.released = game.released
 
-    game.genres.forEach((genre) => {
-      req.body.genres.push(genre.name)
-    })
-    game.developers.forEach((developer) => {
-      req.body.developers.push(developer.name)
-    })
-    game.platforms.forEach((platform) => {
-      req.body.platform.push(platform.platform.name)
-    })
-
     game = await Game.create(req.body)
   }
 
-  wishList.games.push(game._id)
-
   try {
-    // Save any changes made to the movie doc
+    wishList.games.push(game._id)
     await wishList.save()
+    console.log(wishList, game)
     res.redirect(`/games/${req.params.id}`)
   } catch (err) {
     console.log(err)
