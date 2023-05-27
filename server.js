@@ -13,7 +13,8 @@ require('./config/passport')
 
 const indexRouter = require('./routes/index')
 const gamesRouter = require('./routes/games')
-const wishListRouter = require('./routes/wishList')
+const wishListsRouter = require('./routes/wishLists')
+const collectionsRouter = require('./routes/collections')
 
 const app = express()
 
@@ -43,7 +44,8 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter)
 app.use('/games', gamesRouter)
-app.use('/wishList', wishListRouter)
+app.use('/wishList', wishListsRouter)
+app.use('/collection', collectionsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

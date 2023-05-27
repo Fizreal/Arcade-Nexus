@@ -4,10 +4,7 @@ const passport = require('passport')
 
 const gamesCtrl = require('../controllers/games')
 
-/* GET home page. */
-
 router.get('/', gamesCtrl.index)
-
 router.get('/search', gamesCtrl.search)
 router.get('/:id', gamesCtrl.show)
 

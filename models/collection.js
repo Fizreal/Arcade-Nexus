@@ -10,12 +10,10 @@ const collectionSchema = new Schema(
     },
     games: [
       {
-        game: [
-          {
-            type: Schema.Types.ObjectId,
-            ref: 'Game'
-          }
-        ],
+        game: {
+          type: Schema.Types.ObjectId,
+          ref: 'Game'
+        },
         playerUsername: String,
         status: {
           type: String,
