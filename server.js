@@ -14,11 +14,11 @@ require('./config/passport')
 const indexRouter = require('./routes/index')
 const gamesRouter = require('./routes/games')
 const wishListsRouter = require('./routes/wishLists')
-const collectionsRouter = require('./routes/collections')
+const ownedListRouter = require('./routes/ownedList')
+const dashboardsRouter = require('./routes/dashboards')
 
 const app = express()
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
@@ -45,7 +45,8 @@ app.use((req, res, next) => {
 app.use('/', indexRouter)
 app.use('/games', gamesRouter)
 app.use('/wishList', wishListsRouter)
-app.use('/collection', collectionsRouter)
+app.use('/ownedList', ownedListRouter)
+app.use('/dashboard', dashboardsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

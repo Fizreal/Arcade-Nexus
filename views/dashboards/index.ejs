@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+  <p>Dashboard landing page</p>
+
+  <a href="/dashboard/owned">
+    <section>
+      <h2>Owned Games</h2>
+      <p>
+        <%= ownedList.games.length%> games
+      </p>
+    </section>
+  </a>
+
+  <a href="/dashboard/wishlist">
+    <section>
+      <h2>Wish List</h2>
+      <p>
+        <%= wishList.games.length%> games
+      </p>
+    </section>
+  </a>
+
+  <%- include('../partials/footer') %>

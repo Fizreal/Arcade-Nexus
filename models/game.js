@@ -13,7 +13,6 @@ const gameSchema = new Schema(
     gameModes: [],
     userRating: Number,
     metacritic: Number,
-    //possibly date format?
     releaseDate: String
   },
   { timestamps: true }

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const collectionSchema = new Schema(
+const ownedListSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
@@ -27,4 +27,4 @@ const collectionSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('Collection', collectionSchema)
+module.exports = mongoose.model('OwnedList', ownedListSchema)

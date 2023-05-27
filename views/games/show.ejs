@@ -32,7 +32,7 @@
       ).join(', ') %>
   </p>
   <% if (user) {%>
-    <form action="/collection/<%=game.id%>?_method=PUT" method="POST">
+    <form action="/ownedList/<%=game.id%>?_method=PUT" method="POST">
       <button type="submit">Add to Collection</button>
     </form>
     <form action="/wishList/<%=game.id%>?_method=PUT" method="POST">

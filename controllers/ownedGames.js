@@ -2,12 +2,12 @@ const axios = require('axios')
 const API_KEY = process.env.RAWG_KEY
 const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
-const Collection = require('../models/collection')
+const OwnedList = require('../models/ownedList')
 const WishList = require('../models/wishList')
 const Game = require('../models/game')
 
 const updateList = async (req, res) => {
-  let collection = await Collection.findOne({ user: req.user._id })
+  let ownedList = await OwnedList.findOne({ user: req.user._id })
   let wishList = await WishList.findOne({ user: req.user._id })
   let game = await Game.findOne({ gameID: req.params.id })
 
@@ -51,14 +51,14 @@ const updateList = async (req, res) => {
   }
 
   try {
-    if (!collection.games.includes(game._id)) {
-      collection.games.push(game._id)
+    if (!ownedList.games.includes(game._id)) {
+      ownedList.games.push({ game: game._id })
       if (wishList.games.includes(game._id)) {
         let idx = wishList.games.indexOf(game._id)
         wishList.games.splice(idx, 1)
       }
     }
-    await collection.save()
+    await ownedList.save()
     await wishList.save()
     res.redirect(`/games/${req.params.id}`)
   } catch (err) {

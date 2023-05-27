@@ -1,7 +1,7 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('../models/user')
-const Collection = require('../models/collection')
+const OwnedList = require('../models/ownedList')
 const Wishlist = require('../models/wishList')
 
 passport.use(
@@ -15,14 +15,12 @@ passport.use(
       try {
         let user = await User.findOne({ googleId: profile.id })
         if (user) return cb(null, user)
-        // We have a new user via OAuth!
         user = await User.create({
           name: profile.displayName,
           googleId: profile.id,
           email: profile.emails[0].value
         })
-        //create collection and wishlist for the user
-        await Collection.create({
+        await OwnedList.create({
           user: user._id
         })
         await Wishlist.create({

@@ -1,19 +1,6 @@
 <%- include('./partials/header') %>
 
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
+  <p>Welcome to Arcade Nexus!
   </p>
-  <a href="/auth/google">LOG IN</a>
-  <%if (user) {%>
-    <p>Successful login</p>
-    <%}%>
-      <ul>
-        <%games.forEach(game=> {%>
-          <li>
-            <%= game.name%>
-          </li>
-          <%})%>
-      </ul>
-      <%- include('./partials/footer') %>
+
+  <%- include('./partials/footer') %>
