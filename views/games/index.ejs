@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+  <form action="/games/search" method="GET">
+    <input type="text" name="search">
+    <button type="submit">Search</button>
+  </form>
+
+
+
+
+  <%games.forEach(game=> {%>
+    <div>
+      <p>
+        <%= game.name %>
+      </p>
+      <p>
+        <%= game.background_image %>
+      </p>
+      <p>
+        <%= game.released %>
+      </p>
+      <p>
+        <%- game.genres.map(genre=>
+          `${genre.name}`
+          ).join(', ') %>
+      </p>
+    </div>
+    <%})%>
+      <%- include('../partials/footer') %>

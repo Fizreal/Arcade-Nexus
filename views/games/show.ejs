@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+  <h1>show page</h1>
+  <p>
+    <%= game.name%>
+  </p>
+  <p>
+    <%= game.description_raw%>
+  </p>
+  <p>
+    <%= game.background_image%>
+  </p>
+  <p>Metacritic: <%= game.metacritic%>
+  </p>
+  <p>User rating: <%= game.rating%>/5</p>
+  <p>Average Playtime: <%= game.playtime%>
+  </p>
+  <p>Release date: <%= game.released%>
+  </p>
+  <p> Genres:
+    <%- game.genres.map(genre=>
+      `${genre.name}`
+      ).join(', ') %>
+  </p>
+  <p> Developers:
+    <%- game.developers.map(developer=>
+      `${developer.name}`
+      ).join(', ') %>
+  </p>
+  <p> Available platforms:
+    <%- game.platforms.map(platform=>
+      `${platform.platform.name}`
+      ).join(', ') %>
+  </p>
+  <% if (user) {%>
+    <form action="/wishlist/<%=game.id%>_method=PUT" method="POST">
+      <button type="submit">Add to Wish List</button>
+    </form>
+    <%}%>
+      <%- include('../partials/footer') %>

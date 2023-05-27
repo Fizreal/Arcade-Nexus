@@ -2,7 +2,7 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('../models/user')
 const Collection = require('../models/collection')
-const Wishlist = require('../models/wishlist')
+const Wishlist = require('../models/wishList')
 
 passport.use(
   new GoogleStrategy(

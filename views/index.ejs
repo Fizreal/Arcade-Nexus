@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
+<%- include('./partials/header') %>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
   <h1>
     <%= title %>
   </h1>
@@ -18,6 +9,11 @@
   <%if (user) {%>
     <p>Successful login</p>
     <%}%>
-</body>
-
-</html>
+      <ul>
+        <%games.forEach(game=> {%>
+          <li>
+            <%= game.name%>
+          </li>
+          <%})%>
+      </ul>
+      <%- include('./partials/footer') %>
