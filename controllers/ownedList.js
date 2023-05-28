@@ -46,6 +46,7 @@ const updateList = async (req, res) => {
     req.body.userRating = game.rating
     req.body.metacritic = game.metacritic
     req.body.released = game.released
+    req.body.description = game.description_raw
 
     game = await Game.create(req.body)
   }
@@ -67,6 +68,26 @@ const updateList = async (req, res) => {
   }
 }
 
+const remove = async (req, res) => {
+  let ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
+    'games.game'
+  )
+  let gameObjects = ownedList.games
+  let idx = gameObjects
+    .map((el) => el.game.gameID)
+    .indexOf(parseInt(req.params.id))
+
+  console.log(ownedList, idx)
+  try {
+    ownedList.games.splice(idx, 1)
+    await ownedList.save()
+    res.render('dashboards/ownedList', { ownedList })
+  } catch (err) {
+    console.log(err.message)
+    res.render('dashboards/ownedList', { ownedList })
+  }
+}
+
 const showOwned = async (req, res) => {
   const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
     'games.game'
@@ -81,4 +102,43 @@ const showOwned = async (req, res) => {
   res.render('dashboards/showOwned', { gameObj })
 }
 
-module.exports = { update: updateList, showOwned }
+const edit = async (req, res) => {
+  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
+    'games.game'
+  )
+  let gameObjects = ownedList.games
+  let idx = gameObjects
+    .map((el) => el.game.gameID)
+    .indexOf(parseInt(req.params.id))
+  let gameObj = gameObjects[idx]
+
+  console.log(gameObjects, idx, gameObj)
+  res.render('dashboards/playerInfo', { gameObj })
+}
+
+const update = async (req, res) => {
+  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
+    'games.game'
+  )
+  let gameObjects = ownedList.games
+  let idx = gameObjects
+    .map((el) => el.game.gameID)
+    .indexOf(parseInt(req.params.id))
+  let gameObj = gameObjects[idx]
+
+  gameObj.playerUsername = req.body.playerUsername
+  gameObj.platform = req.body.platform
+  gameObj.userRating = req.body.userRating
+  gameObj.status = req.body.status
+
+  console.log(gameObj)
+  try {
+    await ownedList.save()
+    res.redirect(`/ownedlist/${req.params.id}`)
+  } catch (err) {
+    console.log(err.message)
+    res.redirect(`/ownedlist/${req.params.id}`)
+  }
+}
+
+module.exports = { add: updateList, remove, showOwned, edit, update }

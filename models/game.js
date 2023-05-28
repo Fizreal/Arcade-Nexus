@@ -11,9 +11,11 @@ const gameSchema = new Schema(
     genres: [],
     developers: [],
     gameModes: [],
+    platforms: [],
     userRating: Number,
     metacritic: Number,
-    releaseDate: String
+    releaseDate: String,
+    description: String
   },
   { timestamps: true }
 )

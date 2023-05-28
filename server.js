@@ -44,8 +44,8 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter)
 app.use('/games', gamesRouter)
-app.use('/wishList', wishListsRouter)
-app.use('/ownedList', ownedListRouter)
+app.use('/wishlist', wishListsRouter)
+app.use('/ownedlist', ownedListRouter)
 app.use('/dashboard', dashboardsRouter)
 
 // catch 404 and forward to error handler

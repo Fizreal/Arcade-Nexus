@@ -44,6 +44,7 @@ const updateList = async (req, res) => {
     req.body.userRating = game.rating
     req.body.metacritic = game.metacritic
     req.body.released = game.released
+    req.body.description = game.description_raw
 
     game = await Game.create(req.body)
   }
@@ -58,4 +59,18 @@ const updateList = async (req, res) => {
   }
 }
 
-module.exports = { update: updateList }
+const remove = async (req, res) => {
+  let wishList = await WishList.findOne({ user: req.user._id })
+  let idx = wishList.games.indexOf(parseInt(req.params.id))
+
+  try {
+    wishList.games.splice(idx, 1)
+    await wishList.save()
+    res.redirect(`/games/${req.params.id}`)
+  } catch (err) {
+    console.log(err.message)
+    res.redirect(`/games/${req.params.id}`)
+  }
+}
+
+module.exports = { add: updateList, remove }

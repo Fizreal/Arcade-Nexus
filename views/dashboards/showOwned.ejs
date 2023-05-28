@@ -1,5 +1,68 @@
 <%- include('../partials/header') %>
-  <h1>
-    <%=gameObj.game.name%>
-  </h1>
-  <%- include('../partials/footer') %>
+  <section>
+    <img src="<%=gameObj.game.imageURL%>" alt="<%=gameObj.game.name%>" width="150" height="100">
+    <h1>
+      <%=gameObj.game.name%>
+    </h1>
+    <p>
+      <%=gameObj.game.released%>
+    </p>
+    <p>
+      <%=gameObj.game.genres.join(", ")%>
+    </p>
+    <p>Average playtime: 
+      <%=gameObj.game.playtime%>
+      hours
+    </p>
+  </section>
+
+  <section>
+    <h1>Player info</h1>
+    <% if (gameObj.game.gameModes.includes('Multiplayer')) {%>
+        <p>Username: 
+          <%=gameObj.playerUsername ? gameObj.playerUsername : '' %>
+        </p>
+        <%}%>
+          <p>Playing on: 
+            <%=gameObj.platform ? gameObj.platform : '' %>
+          </p>
+          <p>Rating: 
+            <%=gameObj.userRating ? gameObj.userRating : '' %>
+          </p>
+          <p>Status: 
+            <%=gameObj.status ? gameObj.status : '' %>
+          </p>
+          <form action='/ownedlist/<%=gameObj.game.gameID%>/edit' method='GET'>
+        <button type='submit'>Update</button>
+        </form>
+  </section>
+
+  <section>
+    <h1>About</h1>
+    <p>
+      <%=gameObj.game.description%>
+    </p>
+    <div>
+      <h2>Platforms:</h2>
+      <p>
+        <%=gameObj.game.platforms.sort().join(', ')%></p>
+    </div>
+    <div>
+      <h2>Game modes:</h2>
+      <p><%=gameObj.game.gameModes.join(' , ')%></p>
+    </div>
+    <div>
+      <h2>Developers:</h2>
+      <p><%=gameObj.game.developers.join(' , ')%></p>
+    </div>
+    <div>
+      <p>Metacritic rating: <%=gameObj.game.metacritic%></p>
+      <p>User rating: <%=gameObj.game.userRating%></p>
+    </div>
+  </section>
+
+
+  <form action='/ownedlist/remove/<%=gameObj.game.gameID%>?_method=PUT' method='POST'>
+        <button type='submit'>Remove from collection</button>
+        </form>
+        <%- include('../partials/footer') %>
