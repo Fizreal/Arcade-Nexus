@@ -67,4 +67,18 @@ const updateList = async (req, res) => {
   }
 }
 
-module.exports = { update: updateList }
+const showOwned = async (req, res) => {
+  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
+    'games.game'
+  )
+  let gameObjects = ownedList.games
+  let idx = gameObjects
+    .map((el) => el.game.gameID)
+    .indexOf(parseInt(req.params.id))
+  let gameObj = gameObjects[idx]
+
+  console.log(gameObjects, idx, gameObj)
+  res.render('dashboards/showOwned', { gameObj })
+}
+
+module.exports = { update: updateList, showOwned }

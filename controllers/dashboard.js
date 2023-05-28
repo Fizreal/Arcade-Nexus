@@ -14,14 +14,12 @@ const owned = async (req, res) => {
   const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
     'games.game'
   )
-  console.log(ownedList)
   res.render('dashboards/ownedList', { ownedList })
 }
 const wishList = async (req, res) => {
   const wishList = await WishList.findOne({ user: req.user._id }).populate(
     'games'
   )
-  console.log(wishList)
   res.render('dashboards/wishList', { wishList })
 }
 

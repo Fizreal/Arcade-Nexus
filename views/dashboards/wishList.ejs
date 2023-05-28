@@ -1,3 +1,17 @@
 <%- include('../partials/header') %>
   <h1>Wish List</h1>
-  <%- include('../partials/footer') %>
+  <% wishList.games.forEach(game=> {%>
+    <a href="/games/<%=game.gameID%>">
+      <section>
+        <img src="<%=game.imageURL%>">
+        <h1>
+          <%=game.name%>
+        </h1>
+        <p>
+          <%= game.genres.join(", ") %>
+      </p>
+    </section>
+    </a>
+
+    <%})%>
+      <%- include('../partials/footer') %>

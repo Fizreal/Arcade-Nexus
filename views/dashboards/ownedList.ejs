@@ -1,3 +1,17 @@
 <%- include('../partials/header') %>
   <h1>Owned Games</h1>
-  <%- include('../partials/footer') %>
+  <% ownedList.games.forEach(gameObj=> {%>
+    <a href="/ownedList/<%=gameObj.game.gameID%>">
+      <section>
+        <img src="<%=gameObj.game.imageURL%>">
+        <h1>
+          <%=gameObj.game.name%>
+        </h1>
+        <p>
+          <%= gameObj.game.genres.join(", ") %>
+      </p>
+    </section>
+    </a>
+
+    <%})%>
+      <%- include('../partials/footer') %>
