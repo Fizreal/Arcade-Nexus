@@ -51,9 +51,11 @@ const updateList = async (req, res) => {
     game = await Game.create(req.body)
   }
 
+  let ownedGames = await ownedList.populate('games.game')
+  let gameIDs = ownedGames.games.map((gameObj) => gameObj.game.gameID)
   try {
-    if (!ownedList.games.includes(game._id)) {
-      ownedList.games.push({ game: game._id })
+    if (!gameIDs.includes(game.gameID)) {
+      ownedList.games.push({ game: game._id, status: 'Backlog' })
       if (wishList.games.includes(game._id)) {
         let idx = wishList.games.indexOf(game._id)
         wishList.games.splice(idx, 1)
