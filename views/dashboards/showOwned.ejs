@@ -1,68 +1,66 @@
 <%- include('../partials/header') %>
-  <section>
-    <img src="<%=gameObj.game.imageURL%>" alt="<%=gameObj.game.name%>" width="150" height="100">
-    <h1>
-      <%=gameObj.game.name%>
-    </h1>
-    <p>
-      <%=gameObj.game.released%>
-    </p>
-    <p>
-      <%=gameObj.game.genres.join(", ")%>
-    </p>
-    <p>Average playtime: 
-      <%=gameObj.game.playtime%>
-      hours
-    </p>
-  </section>
-
-  <section>
-    <h1>Player info</h1>
-    <% if (gameObj.game.gameModes.includes('Multiplayer')) {%>
-        <p>Username: 
+  <section class="show">
+    <section class="basicInfoShow">
+      <img src="<%=gameObj.game.imageURL%>" alt="<%=gameObj.game.name%>">
+      <h2 class="heading">
+        <%=gameObj.game.name%>
+      </h2>
+      <p>
+        <%=gameObj.game.released%>
+      </p>
+      <p>
+        <%=gameObj.game.genres.join(', ')%></p>
+      <p>Average playtime: <%=gameObj.game.playtime%> hours</p>
+    <div class="ratings">
+          <p>Metacritic rating: <%=gameObj.game.metacritic%>
+          </p>
+          <p>User rating: <%=gameObj.game.userRating%>
+          </p>
+      </div>
+      <form action=' /ownedlist/remove/<%=gameObj.game.gameID%>?_method=PUT' method='POST'>
+          <button type='submit'>Remove from collection</button>
+          </form>
+    </section>
+    <section class="playerInfo">
+      <h3 class="heading">Player info</h3>
+      <% if (gameObj.game.gameModes.includes('Multiplayer')) {%>
+        <p>Username:
           <%=gameObj.playerUsername ? gameObj.playerUsername : '' %>
         </p>
         <%}%>
-          <p>Playing on: 
+          <p>Playing on:
             <%=gameObj.platform ? gameObj.platform : '' %>
           </p>
-          <p>Rating: 
+          <p>Rating:
             <%=gameObj.userRating ? gameObj.userRating : '' %>
           </p>
-          <p>Status: 
+          <p>Status:
             <%=gameObj.status ? gameObj.status : '' %>
           </p>
-          <form action='/ownedlist/<%=gameObj.game.gameID%>/edit' method='GET'>
-        <button type='submit'>Update</button>
-        </form>
-  </section>
-
-  <section>
-    <h1>About</h1>
-    <p>
-      <%=gameObj.game.description%>
-    </p>
-    <div>
-      <h2>Platforms:</h2>
+          <form action="/ownedlist/<%=gameObj.game.gameID%>/edit" method="GET">
+            <button type="submit">Update</button>
+          </form>
+    </section>
+    <section class="gameInfoShow">
+      <h3 class="heading">About</h3>
       <p>
-        <%=gameObj.game.platforms.sort().join(', ')%></p>
+        <%=gameObj.game.description%>
+      </p>
+      <div class="gameProperty gameInfoShow">
+        <h3 class="heading">Platforms:</h3>
+        <p>
+          <%=gameObj.game.platforms.sort().join(', ')%></p>
     </div>
-    <div>
-      <h2>Game modes:</h2>
-      <p><%=gameObj.game.gameModes.join(' , ')%></p>
+    <div class="gameProperty gameInfoShow">
+            <h3 class="heading">Game modes:</h3>
+            <p>
+              <%=gameObj.game.gameModes.join(", ")%></p>
     </div>
-    <div>
-      <h2>Developers:</h2>
-      <p><%=gameObj.game.developers.join(' , ')%></p>
-    </div>
-    <div>
-      <p>Metacritic rating: <%=gameObj.game.metacritic%></p>
-      <p>User rating: <%=gameObj.game.userRating%></p>
+    <div class="gameProperty gameInfoShow">
+                <h3 class="heading">Developers:</h3>
+                <p>
+                  <%=gameObj.game.developers.join(", ")%></p>
     </div>
   </section>
-
-
-  <form action='/ownedlist/remove/<%=gameObj.game.gameID%>?_method=PUT' method='POST'>
-        <button type='submit'>Remove from collection</button>
-        </form>
-        <%- include('../partials/footer') %>
+  </section>
+    <%- include("../partials/footer") %>

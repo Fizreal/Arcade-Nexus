@@ -201,6 +201,10 @@ justify-content: center;
   margin: 0px 0px 8px 0px;
 }
 
+.playerInfo > * {
+  margin: 0px 0px 8px 0px;
+}
+
 .ratings {
   display: flex;
   justify-content: center;
