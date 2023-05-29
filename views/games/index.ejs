@@ -1,31 +1,29 @@
 <%- include('../partials/header') %>
 
-  <form action="/games/search" method="GET">
+  <form class="search" action="/games/search" method="GET">
     <input type="text" name="search">
     <button type="submit">Search</button>
   </form>
+  <section class="results">
+    <%games.forEach(game=> {%>
 
-
-
-
-  <%games.forEach(game=> {%>
-    <a href="/games/<%=game.id%>">
-      <section>
-        <p>
-          <%= game.name %>
-        </p>
-        <p>
-          <%= game.background_image %>
-        </p>
-        <p>
-          <%= game.released %>
-        </p>
-        <p>
-          <%- game.genres.map(genre=>
-            `${genre.name}`
-            ).join(', ') %>
-        </p>
+      <section class="result">
+        <a class="resultContainer" href="/games/<%=game.id%>">
+          <img class="searchImg" src="<%= game.background_image %>" alt="<%= game.name %>">
+          <p class="released">
+            <%= new Date(game.released).toLocaleString().split(',')[0] %>
+          </p>
+          <h1>
+            <%= game.name %>
+          </h1>
+          <p class="searchGenres">
+            <%- game.genres.map(genre=>
+              `${genre.name}`
+              ).join(',&nbsp; ') %>
+          </p>
+        </a>
       </section>
-    </a>
-    <%})%>
-      <%- include('../partials/footer') %>
+
+      <%})%>
+  </section>
+  <%- include('../partials/footer') %>
