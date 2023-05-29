@@ -1,17 +1,20 @@
 <%- include('../partials/header') %>
-  <h1>Wish List</h1>
-  <% wishList.games.forEach(game=> {%>
-    <a href="/games/<%=game.gameID%>">
-      <section>
-        <img src="<%=game.imageURL%>">
-        <h1>
-          <%=game.name%>
-        </h1>
-        <p>
-          <%= game.genres.join(", ") %>
+  <h1 class="listTitle">Wish List</h1>
+  <section class="gamesList">
+    <% wishList.games.forEach(game=> {%>
+      <section class="listItem">
+        <a class="item" href="/games/<%=game.gameID%>">
+          <img src="<%=game.imageURL%>">
+          <div class="gameInfo">
+            <h1>
+              <%=game.name%>
+            </h1>
+            <p>
+              <%= game.genres.join(", ") %>
       </p>
-    </section>
+          </div>
     </a>
-
+    </section>
     <%})%>
+  </section>
       <%- include('../partials/footer') %>

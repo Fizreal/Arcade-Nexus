@@ -14,6 +14,8 @@ a {
   color: black;
 }
 
+/* header */
+
 header > * {
   width: 100vw;
   text-align: center;
@@ -44,6 +46,8 @@ header > h1 {
 .navbar > *:hover {
   background-color: rgb(29, 29, 29, 0.6);
 }
+
+/* search page */
 
 .search {
   margin-top: 15px;
@@ -120,3 +124,49 @@ justify-content: center;
   font-size: 12px;
 }
 
+/* collection display */
+
+.listTitle {
+  margin: 10px 0px 10px 0px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 20px;
+  color: #cae9ea;
+}
+
+.gamesList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listItem {
+  margin-bottom: 15px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  height: 100px;
+}
+
+.item > img {
+  width: 150px;
+  height: 100px;
+}
+
+.gameInfo {
+  margin-left: 15px;
+  height: 100px;
+}
+
+.gameInfo > * {
+  margin: 0px 0px 5px 0px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  color: #cae9ea;
+}
+.gameInfo > p {
+  font-size: 12px;
+}
