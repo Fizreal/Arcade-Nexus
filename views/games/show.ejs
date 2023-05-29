@@ -1,74 +1,78 @@
 <%- include('../partials/header') %>
-  <section>
-    <img src="<%=game.background_image%>" alt="<%=game.name%>" width="150" height="100">
-    <h1>
-      <%=game.name%>
-    </h1>
-    <p>
-      <%=game.released%>
-    </p>
-    <p>
-      <%- game.genres.map(genre=>
-        `${genre.name}`
-        ).join(', ') %>
-    </p>
-    <p>Average playtime:
-      <%=game.playtime%>
-        hours
-    </p>
-  </section>
-  <section>
-    <h1>About</h1>
-    <p>
-      <%=game.description_raw%>
-    </p>
-    <div>
-      <h2>Platforms:</h2>
+  <section class="show">
+    <section class="basicInfoShow">
+      <img src="<%=game.background_image%>" alt="<%=game.name%>" width="150" height="100">
+      <h2 class="heading">
+        <%=game.name%>
+      </h2>
       <p>
-        <%- game.platforms.map(platform=>
-          `${platform.platform.name}`
+        <%=new Date(game.released).toLocaleString().split(',')[0]%>
+      </p>
+      <p>
+        <%- game.genres.map(genre=>
+          `${genre.name}`
           ).join(', ') %>
       </p>
-    </div>
-    <div>
-      <h2>Game modes:</h2>
+      <p>Average playtime:
+        <%=game.playtime%>
+          hours
+      </p>
+      <div class="ratings">
+        <p>Metacritic: <%=game.metacritic%>
+        </p>
+        <p>Player rating: <%=game.rating%>
+        </p>
+      </div>
+    </section>
+    <section class="collectionOptions">
+      <% if (user) {%>
+        <% if (ownedGames && ownedGames.includes(game.id)) {%>
+          <form action="/ownedlist/remove/<%=game.id%>?_method=PUT" method="POST">
+            <input type="hidden" name="redirect" value="/games/<%=game.id%>">
+            <button type="submit">Remove from collection</button>
+          </form>
+          <%} else if (wishListGames && wishListGames.includes(game.id)) {%>
+            <form action="/ownedlist/add/<%=game.id%>?_method=PUT" method="POST">
+              <button type="submit">Add to Collection</button>
+            </form>
+            <form action="/wishlist/remove/<%=game.id%>?_method=PUT" method="POST">
+              <button type="submit">Remove from wish list</button>
+            </form>
+            <%} else {%>
+              <form action="/ownedlist/add/<%=game.id%>?_method=PUT" method="POST">
+                <button type="submit">Add to Collection</button>
+              </form>
+              <form action="/wishlist/add/<%=game.id%>?_method=PUT" method="POST">
+                <button type="submit">Add to Wish List</button>
+              </form>
+              <%}%>
+                <%}%>
+    </section>
+    <section class="gameInfoShow">
+      <h3 class="heading">About</h3>
+      <p>
+        <%=game.description_raw%>
+      </p>
+      <div class="gameProperty">
+        <h3 class="heading">Platforms:</h3>
+        <p>
+          <%- game.platforms.map(platform=>
+            `${platform.platform.name}`
+            ).sort().join(', ') %>
+        </p>
+      </div>
+      <div class="gameProperty">
+        <h3 class="heading">Developers:</h3>
+        <p><%- game.developers.map(developer=>
+            `${developer.name}`
+            ).join(', ') %></p>
+      </div>
+    </section>
+    <div class="gameProperty gameInfoShow">
+      <h3 class="heading">Game modes:</h3>
       <p>
         <%=game.tags.filter(tag=> ['Multiplayer', 'Singleplayer'].includes(tag.name)).map(tag => tag.name).join(', ')%>
       </p>
     </div>
-    <div>
-      <h2>Developers:</h2>
-      <p><%- game.developers.map(developer=>
-          `${developer.name}`
-          ).join(', ') %></p>
-    </div>
-    <div>
-      <p>Metacritic rating: <%=game.metacritic%>
-      </p>
-      <p>User rating: <%=game.rating%>
-      </p>
-    </div>
   </section>
-  <% if (user) {%>
-    <% if (ownedGames && ownedGames.includes(game.id)) {%>
-      <form action="/ownedlist/remove/<%=game.id%>?_method=PUT" method="POST">
-        <input type="hidden" name="redirect" value="/games/<%=game.id%>">
-        <button type="submit">Remove from collection</button>
-      </form>
-      <%} else if (wishListGames && wishListGames.includes(game.id)) {%>
-        <form action="/ownedlist/add/<%=game.id%>?_method=PUT" method="POST">
-          <button type="submit">Add to Collection</button>
-        </form>
-        <form action="/wishlist/remove/<%=game.id%>?_method=PUT" method="POST">
-          <button type="submit">Remove from wish list</button>
-        </form>
-        <%} else {%>
-          <form action="/ownedlist/add/<%=game.id%>?_method=PUT" method="POST">
-            <button type="submit">Add to Collection</button>
-          </form>
-          <form action="/wishlist/add/<%=game.id%>?_method=PUT" method="POST">
-            <button type="submit">Add to Wish List</button>
-          </form>
-          <%}%>
-            <%}%>
-              <%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>

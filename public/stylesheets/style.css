@@ -170,3 +170,67 @@ justify-content: center;
 .gameInfo > p {
   font-size: 12px;
 }
+
+/* show page */
+
+.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #cae9ea;
+}
+.heading {
+  margin-bottom: 16px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  color: #208c8c;
+}
+
+.basicInfoShow {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.basicInfoShow > img {
+  width: 300px;
+  height: 200px;
+}
+
+.basicInfoShow > * {
+  margin: 0px 0px 8px 0px;
+}
+
+.ratings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+}
+
+.ratings > * {
+  margin: 0px 8px 0px 8px;
+}
+
+.gameInfoShow {
+  width: 350px;
+  height: auto;
+}
+.gameInfoShow > * {
+  margin: 0px 0px 8px 0px;
+}
+
+.gameProperty {
+  text-align: center;
+}
+
+.collectionOptions {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0px 10px 0px;
+}
+
+.collectionOptions > * {
+  margin: 0px 5px 0px 5px;
+}
