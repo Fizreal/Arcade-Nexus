@@ -1,6 +1,26 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    Arcade Nexus
+  </title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Arcade Nexus</h1>
+  </header>
   <p>Welcome to Arcade Nexus!
   </p>
+
+  <p>Discover new games, connect with other players, and curate your collections.</p>
+  <p><a href="/auth/google">Log in</a> for full access to the site, or click below to start exploring.</p>
+
+  <a href="/games"><button>Enter now</button></a>
 
   <%- include('./partials/footer') %>

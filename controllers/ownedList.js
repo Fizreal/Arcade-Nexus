@@ -78,15 +78,22 @@ const remove = async (req, res) => {
   let idx = gameObjects
     .map((el) => el.game.gameID)
     .indexOf(parseInt(req.params.id))
-
-  console.log(ownedList, idx)
+  console.log(req.body.redirect)
   try {
     ownedList.games.splice(idx, 1)
     await ownedList.save()
-    res.render('dashboards/ownedList', { ownedList })
+    if (req.body.redirect) {
+      res.redirect(`${req.body.redirect}`)
+    } else {
+      res.render('dashboards/ownedList', { ownedList })
+    }
   } catch (err) {
     console.log(err.message)
-    res.render('dashboards/ownedList', { ownedList })
+    if (req.body.redirect) {
+      res.redirect(`${req.body.redirect}`)
+    } else {
+      res.render('dashboards/ownedList', { ownedList })
+    }
   }
 }
 
@@ -114,7 +121,6 @@ const edit = async (req, res) => {
     .indexOf(parseInt(req.params.id))
   let gameObj = gameObjects[idx]
 
-  console.log(gameObjects, idx, gameObj)
   res.render('dashboards/playerInfo', { gameObj })
 }
 
@@ -133,7 +139,6 @@ const update = async (req, res) => {
   gameObj.userRating = req.body.userRating
   gameObj.status = req.body.status
 
-  console.log(gameObj)
   try {
     await ownedList.save()
     res.redirect(`/ownedlist/${req.params.id}`)

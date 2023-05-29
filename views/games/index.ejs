@@ -9,21 +9,23 @@
 
 
   <%games.forEach(game=> {%>
-    <div>
-      <p>
-        <%= game.name %>
-      </p>
-      <p>
-        <%= game.background_image %>
-      </p>
-      <p>
-        <%= game.released %>
-      </p>
-      <p>
-        <%- game.genres.map(genre=>
-          `${genre.name}`
-          ).join(', ') %>
-      </p>
-    </div>
+    <a href="/games/<%=game.id%>">
+      <section>
+        <p>
+          <%= game.name %>
+        </p>
+        <p>
+          <%= game.background_image %>
+        </p>
+        <p>
+          <%= game.released %>
+        </p>
+        <p>
+          <%- game.genres.map(genre=>
+            `${genre.name}`
+            ).join(', ') %>
+        </p>
+      </section>
+    </a>
     <%})%>
       <%- include('../partials/footer') %>
