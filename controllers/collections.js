@@ -6,7 +6,7 @@ const Collection = require('../models/collection')
 const Game = require('../models/game')
 
 const newCollection = (req, res) => {
-  res.render('dashbaords/new')
+  res.render('dashboards/new')
 }
 const create = async (req, res) => {
   try {
@@ -22,8 +22,9 @@ const create = async (req, res) => {
 }
 
 const deleteCollection = async (req, res) => {
+  console.log(req.params.id)
   try {
-    Collection.findByIdAndDelete(req.params.id)
+    await Collection.findByIdAndDelete(req.params.id)
     res.redirect('/dashboard')
   } catch (err) {
     console.log(err.message)

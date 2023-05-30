@@ -1,12 +1,9 @@
 <%- include('../partials/header') %>
 
-  <img src="<%=gameObj.game.imageURL%>" alt="<%=gameObj.game.name%>" width="150" height="100">
-  <h1>
-    <%=gameObj.game.name%>
-  </h1>
+  <h1>Create new list</h1>
 
-  <form action="/collection/playerinfo/<%=gameObj.game.gameID%>?_method=PUT" method="POST">
-    <label for="username">List name</label>
+  <form action="/collection" method="POST">
+    <label for="name">List name</label>
     <input type="text" name="name"><br>
     <button type="submit">Create List</button>
   </form>
