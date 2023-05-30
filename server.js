@@ -16,6 +16,7 @@ const gamesRouter = require('./routes/games')
 const wishListsRouter = require('./routes/wishLists')
 const ownedListRouter = require('./routes/ownedList')
 const dashboardsRouter = require('./routes/dashboards')
+const collectionsRouter = require('./routes/collections')
 
 const app = express()
 
@@ -47,6 +48,7 @@ app.use('/games', gamesRouter)
 app.use('/wishlist', wishListsRouter)
 app.use('/ownedlist', ownedListRouter)
 app.use('/dashboard', dashboardsRouter)
+app.use('/collection', collectionsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
