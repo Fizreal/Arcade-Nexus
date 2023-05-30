@@ -66,10 +66,10 @@ const remove = async (req, res) => {
   try {
     wishList.games.splice(idx, 1)
     await wishList.save()
-    res.redirect(`/games/${req.params.id}`)
+    res.redirect('/dashboard/wishlist')
   } catch (err) {
     console.log(err.message)
-    res.redirect(`/games/${req.params.id}`)
+    res.redirect('/dashboard/wishlist')
   }
 }
 

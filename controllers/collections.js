@@ -89,7 +89,22 @@ const updateList = async (req, res) => {
   }
 }
 
-const remove = async (req, res) => {}
+const remove = async (req, res) => {
+  let collection = await Collection.findOne({
+    _id: req.params.collectionId,
+    user: req.user._id
+  })
+  let idx = collection.games.indexOf(parseInt(req.params.gameId))
+
+  try {
+    collection.games.splice(idx, 1)
+    await collection.save()
+    res.redirect(`/dashboard/${req.params.collectionId}`)
+  } catch (err) {
+    console.log(err.message)
+    res.redirect(`/dashboard/${req.params.collectionId}`)
+  }
+}
 
 module.exports = {
   new: newCollection,

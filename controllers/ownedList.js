@@ -82,18 +82,10 @@ const remove = async (req, res) => {
   try {
     ownedList.games.splice(idx, 1)
     await ownedList.save()
-    if (req.body.redirect) {
-      res.redirect(`${req.body.redirect}`)
-    } else {
-      res.render('dashboards/ownedList', { ownedList })
-    }
+    res.redirect('/dashboard/owned')
   } catch (err) {
     console.log(err.message)
-    if (req.body.redirect) {
-      res.redirect(`${req.body.redirect}`)
-    } else {
-      res.render('dashboards/ownedList', { ownedList })
-    }
+    res.redirect('/dashboard/owned')
   }
 }
 

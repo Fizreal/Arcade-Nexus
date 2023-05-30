@@ -14,7 +14,11 @@
       </p>
           </div>
     </a>
-    </section>
-    <%})%>
+    <form class=" removeGame" action="/wishlist/remove/<%=game.gameID%>?_method=PUT" method="POST">
+                <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png"
+                    alt="Remove from list"></button>
+                </form>
+      </section>
+      <%})%>
   </section>
-      <%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>

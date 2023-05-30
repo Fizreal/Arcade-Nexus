@@ -17,29 +17,26 @@
           <p>User rating: <%=gameObj.game.userRating%>
           </p>
       </div>
-      <form action=' /ownedlist/remove/<%=gameObj.game.gameID%>?_method=PUT' method='POST'>
-          <button type='submit'>Remove from collection</button>
-          </form>
     </section>
     <section class="playerInfo">
       <h3 class="heading">Player info</h3>
-      <% if (gameObj.game.gameModes.includes('Multiplayer')) {%>
-        <p>Username:
-          <%=gameObj.playerUsername ? gameObj.playerUsername : '' %>
-        </p>
-        <%}%>
-          <p>Playing on:
-            <%=gameObj.platform ? gameObj.platform : '' %>
+      <% if (gameObj.game.gameModes.includes(' Multiplayer')) {%>
+          <p>Username:
+            <%=gameObj.playerUsername ? gameObj.playerUsername : '' %>
           </p>
-          <p>Rating:
-            <%=gameObj.userRating ? gameObj.userRating : '' %>
-          </p>
-          <p>Status:
-            <%=gameObj.status ? gameObj.status : '' %>
-          </p>
-          <form action="/ownedlist/<%=gameObj.game.gameID%>/edit" method="GET">
-            <button type="submit">Update</button>
-          </form>
+          <%}%>
+            <p>Playing on:
+              <%=gameObj.platform ? gameObj.platform : '' %>
+            </p>
+            <p>Rating:
+              <%=gameObj.userRating ? gameObj.userRating : '' %>
+            </p>
+            <p>Status:
+              <%=gameObj.status ? gameObj.status : '' %>
+            </p>
+            <form action="/ownedlist/<%=gameObj.game.gameID%>/edit" method="GET">
+              <button type="submit">Update</button>
+            </form>
     </section>
     <section class="gameInfoShow">
       <h3 class="heading">About</h3>

@@ -15,11 +15,13 @@
               <%=game.name%>
             </h1>
             <p>
-              <%= game.genres.join(", ") %>
+              <%= game.genres.join(', ') %>
       </p>
           </div>
     </a>
-    </section>
-    <%})%>
-  </section>
-      <%- include('../partials/footer') %>
+    <form class="removeGame" action="/collection/remove/<%=collection._id%>/<%=game.gameID%>?_method=PUT" method="POST" >
+      <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png" alt="Remove from list"></button>
+    </form>
+          <%})%>
+      </section>
+      <%- include("../partials/footer") %>

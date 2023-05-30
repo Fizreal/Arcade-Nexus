@@ -10,13 +10,18 @@
               <%=gameObj.game.name%>
             </h1>
             <p>
-              <%= gameObj.game.genres.join(", ") %>
-          </p>
-            <p>Status: 
+              <%= gameObj.game.genres.join(', ') %>
+            </p>
+            <p>Status:
               <%= gameObj.status %>
-          </p>
-        </div></a>
-    </section>
-    <%})%>
+            </p>
+          </div>
+        </a>
+        <form class="removeGame" action="/ownedlist/remove/<%=gameObj.game.gameID%>?_method=PUT" method="POST">
+          <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png"
+              alt="Remove from list"></button>
+        </form>
+      </section>
+      <%})%>
   </section>
-      <%- include('../partials/footer') %>
+  <%- include("../partials/footer") %>
