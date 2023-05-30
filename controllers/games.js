@@ -4,6 +4,7 @@ const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
 const OwnedList = require('../models/ownedList')
 const WishList = require('../models/wishList')
+const Collection = require('../models/collection')
 
 const index = async (req, res) => {
   const response = await axios.get(`${DOMAIN}games?page_size=24&key=${API_KEY}`)
@@ -18,6 +19,7 @@ const show = async (req, res) => {
   let game = response.data
   let ownedGames
   let wishListGames
+  let collections
   if (req.user) {
     let ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
       'games.game'
@@ -27,8 +29,12 @@ const show = async (req, res) => {
       'games'
     )
     wishListGames = wishList.games.map((gameObj) => gameObj.gameID)
+    collections = await Collection.find({ user: req.user._id }).populate(
+      'games'
+    )
   }
-  res.render('games/show', { game, ownedGames, wishListGames })
+  console.log(collections)
+  res.render('games/show', { game, ownedGames, wishListGames, collections })
 }
 
 const search = async (req, res) => {

@@ -10,7 +10,6 @@ const index = async (req, res) => {
   const ownedList = await OwnedList.findOne({ user: req.user._id })
   const wishList = await WishList.findOne({ user: req.user._id })
   const collections = await Collection.find({ user: req.user._id })
-  console.log(collections)
   res.render('dashboards', { ownedList, wishList, collections })
 }
 const owned = async (req, res) => {
