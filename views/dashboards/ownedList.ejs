@@ -1,16 +1,17 @@
 <%- include('../partials/header') %>
-  <h1 class="listTitle">Owned Games</h1>
-  <section class="gamesList">
-    <% ownedList.games.forEach(gameObj=> {%>
-      <section class="listItem">
-        <a class="item" href="/ownedList/<%=gameObj.game.gameID%>">
-          <img src="<%=gameObj.game.imageURL%>">
-          <div class="gameInfo">
-            <h1>
-              <%=gameObj.game.name%>
-            </h1>
-            <p>
-              <%= gameObj.game.genres.join(', ') %>
+  <section class="contentWidth">
+    <h1 class="listTitle">Owned Games</h1>
+    <section class="gamesList">
+      <% ownedList.games.forEach(gameObj=> {%>
+        <section class="listItem">
+          <a class="item" href="/ownedList/<%=gameObj.game.gameID%>">
+            <img src="<%=gameObj.game.imageURL%>">
+            <div class="gameInfo">
+              <h1>
+                <%=gameObj.game.name%>
+              </h1>
+              <p>
+                <%= gameObj.game.genres.join(', ') %>
             </p>
             <p>Status:
               <%= gameObj.status %>
@@ -24,4 +25,5 @@
       </section>
       <%})%>
   </section>
+</section>
   <%- include("../partials/footer") %>

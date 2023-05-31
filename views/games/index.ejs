@@ -1,29 +1,30 @@
 <%- include('../partials/header') %>
+  <section class="contentWidth">
+    <form class="search" action="/games/search" method="GET">
+      <input type="text" name="search">
+      <button type="submit">Search</button>
+    </form>
+    <section class="results">
+      <%games.forEach(game=> {%>
 
-  <form class="search" action="/games/search" method="GET">
-    <input type="text" name="search">
-    <button type="submit">Search</button>
-  </form>
-  <section class="results">
-    <%games.forEach(game=> {%>
+        <section class="result">
+          <a class="resultContainer" href="/games/<%=game.id%>">
+            <img class="searchImg" src="<%= game.background_image %>" alt="<%= game.name %>">
+            <p class="released">
+              <%= new Date(game.released).toLocaleString().split(',')[0] %>
+            </p>
+            <h1>
+              <%= game.name %>
+            </h1>
+            <p class="searchGenres">
+              <%- game.genres.map(genre=>
+                `${genre.name}`
+                ).join(',&nbsp; ') %>
+            </p>
+          </a>
+        </section>
 
-      <section class="result">
-        <a class="resultContainer" href="/games/<%=game.id%>">
-          <img class="searchImg" src="<%= game.background_image %>" alt="<%= game.name %>">
-          <p class="released">
-            <%= new Date(game.released).toLocaleString().split(',')[0] %>
-          </p>
-          <h1>
-            <%= game.name %>
-          </h1>
-          <p class="searchGenres">
-            <%- game.genres.map(genre=>
-              `${genre.name}`
-              ).join(',&nbsp; ') %>
-          </p>
-        </a>
-      </section>
-
-      <%})%>
+        <%})%>
+    </section>
   </section>
   <%- include('../partials/footer') %>

@@ -10,7 +10,6 @@
       <label for="username">Username</label>
       <input type="text" name="playerUsername" value="<%=gameObj.playerUsername ? gameObj.playerUsername : '' %>"><br>
       <%}%>
-
         <label for="platform">User Platform</label>
         <select name="platform" id="platform">
           <% gameObj.game.platforms.sort().forEach(platform=> {%>

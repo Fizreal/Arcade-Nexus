@@ -1,24 +1,26 @@
 <%- include('../partials/header') %>
-  <h1 class="listTitle">Wish List</h1>
-  <section class="gamesList">
-    <% wishList.games.forEach(game=> {%>
-      <section class="listItem">
-        <a class="item" href="/games/<%=game.gameID%>">
-          <img src="<%=game.imageURL%>">
-          <div class="gameInfo">
-            <h1>
-              <%=game.name%>
-            </h1>
-            <p>
-              <%= game.genres.join(", ") %>
-      </p>
-          </div>
-    </a>
-    <form class=" removeGame" action="/wishlist/remove/<%=game.gameID%>?_method=PUT" method="POST">
-                <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png"
-                    alt="Remove from list"></button>
-                </form>
-      </section>
-      <%})%>
+  <section class="contentWidth">
+    <h1 class="listTitle">Wish List</h1>
+    <section class="gamesList">
+      <% wishList.games.forEach(game=> {%>
+        <section class="listItem">
+          <a class="item" href="/games/<%=game.gameID%>">
+            <img src="<%=game.imageURL%>">
+            <div class="gameInfo">
+              <h1>
+                <%=game.name%>
+              </h1>
+              <p>
+                <%= game.genres.join(", ") %>
+        </p>
+            </div>
+      </a>
+      <form class=" removeGame" action="/wishlist/remove/<%=game.gameID%>?_method=PUT" method="POST">
+                  <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png"
+                      alt="Remove from list"></button>
+                  </form>
+        </section>
+        <%})%>
+    </section>
   </section>
   <%- include('../partials/footer') %>

@@ -1,35 +1,39 @@
 <%- include('../partials/header') %>
-  <a href="/collection/new"><button>New list</button></a>
-  <a href="/dashboard/owned">
-    <section>
-      <h2>Owned Games</h2>
-      <p>
-        <%= ownedList.games.length%> games
-      </p>
-    </section>
-  </a>
-
-  <a href="/dashboard/wishlist">
-    <section>
-      <h2>Wish List</h2>
-      <p>
-        <%= wishList.games.length%> games
-      </p>
-    </section>
-  </a>
-
-  <% if (collections.length) {%>
-    <% collections.forEach(collection=> {%>
-      <a href="/dashboard/<%=collection._id%>">
-        <section>
-          <h2>
-            <%=collection.name%>
-          </h2>
+  <section class="dashboard">
+    <section class="dashboardContent">
+      <a class="newList" href="/collection/new"><button>New list</button></a>
+      <a href="/dashboard/owned">
+        <section class="dashboardList">
+          <h2>Owned Games</h2>
           <p>
-            <%= collection.games.length%> games
+            <%= ownedList.games.length%> games
           </p>
         </section>
       </a>
-      <%})%>
-        <%}%>
-          <%- include('../partials/footer') %>
+
+      <a href="/dashboard/wishlist">
+        <section class="dashboardList">
+          <h2>Wish List</h2>
+          <p>
+            <%= wishList.games.length%> games
+          </p>
+        </section>
+      </a>
+
+      <% if (collections.length) {%>
+        <% collections.forEach(collection=> {%>
+          <a href="/dashboard/<%=collection._id%>">
+            <section class="dashboardList">
+              <h2>
+                <%=collection.name%>
+              </h2>
+              <p>
+                <%= collection.games.length%> games
+              </p>
+            </section>
+          </a>
+          <%})%>
+            <%}%>
+    </section>
+  </section>
+  <%- include('../partials/footer') %>

@@ -1,11 +1,14 @@
 <%- include('../partials/header') %>
+  <section class="contentWidth">
+    <h1 class="heading">Create new list</h1>
 
-  <h1>Create new list</h1>
-
-  <form action="/collection" method="POST">
-    <label for="name">List name</label>
-    <input type="text" name="name"><br>
-    <button type="submit">Create List</button>
-  </form>
+    <form class="inputForm" action="/collection" method="POST">
+      <div>
+        <label for="name">List name:</label>
+        <input type="text" name="name">
+      </div>
+      <button type="submit">Create List</button>
+    </form>
+  </section>
 
   <%- include('../partials/footer') %>

@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-  <section class="show">
+  <section class="show contentWidth">
     <section class="basicInfoShow">
       <img src="<%=game.background_image%>" alt="<%=game.name%>" width="150" height="100">
       <h2 class="heading">
@@ -43,6 +43,7 @@
                           <%}%>
                             <%})%>
                               <%}%>
+                                <option value="/collection/new?_method=GET">Create new list</option>
           </select>
           <button type="submit">Add to list</button>
         </form>

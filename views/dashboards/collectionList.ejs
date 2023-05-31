@@ -1,27 +1,30 @@
 <%- include('../partials/header') %>
-  <h1 class="listTitle">
-    <%=collection.name%>
-  </h1>
-  <form action="/collection/<%=collection._id%>?_method=DELETE" method="post">
-    <button type="submit">Delete list</button>
-  </form>
-  <section class="gamesList">
-    <% collection.games.forEach(game=> {%>
-      <section class="listItem">
-        <a class="item" href="/games/<%=game.gameID%>">
-          <img src="<%=game.imageURL%>">
-          <div class="gameInfo">
-            <h1>
-              <%=game.name%>
-            </h1>
-            <p>
-              <%= game.genres.join(', ') %>
-      </p>
-          </div>
-    </a>
-    <form class="removeGame" action="/collection/remove/<%=collection._id%>/<%=game.gameID%>?_method=PUT" method="POST" >
-      <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png" alt="Remove from list"></button>
+  <section class="contentWidth">
+    <form class="deleteList" action="/collection/<%=collection._id%>?_method=DELETE" method="post">
+      <button type="submit">Delete list</button>
     </form>
-          <%})%>
-      </section>
+    <h1 class="listTitle">
+      <%=collection.name%>
+    </h1>
+    <section class="gamesList">
+      <% collection.games.forEach(game=> {%>
+        <section class="listItem">
+          <a class="item" href="/games/<%=game.gameID%>">
+            <img src="<%=game.imageURL%>">
+            <div class="gameInfo">
+              <h1>
+                <%=game.name%>
+              </h1>
+              <p>
+                <%= game.genres.join(', ') %>
+        </p>
+            </div>
+      </a>
+      <form class="removeGame" action="/collection/remove/<%=collection._id%>/<%=game.gameID%>?_method=PUT" method="POST" >
+        <button class="removeButton" type="submit"><img class="removeImg" src="../images/minus.png" alt="Remove from list"></button>
+      </form>
+    </section>
+            <%})%>
+        </section>
+</section>  
       <%- include("../partials/footer") %>

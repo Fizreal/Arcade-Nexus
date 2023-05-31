@@ -6,7 +6,16 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: #3c4748;
+}
 
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.contentWidth {
+  width: 350px;
+  margin-top: 15px;
 }
 
 a {
@@ -50,7 +59,6 @@ header > h1 {
 /* search page */
 
 .search {
-  margin-top: 15px;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -127,11 +135,20 @@ justify-content: center;
 /* collection display */
 
 .listTitle {
-  margin: 10px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
   font-family: 'Orbitron', sans-serif;
   text-align: center;
   font-size: 20px;
   color: #cae9ea;
+}
+
+.deleteList {
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteList > button {
+  align-self: flex-end;
 }
 
 .gamesList {
@@ -197,14 +214,13 @@ justify-content: center;
   color: #cae9ea;
 }
 .heading {
-  margin-bottom: 16px;
+  margin: 0px 0px 16px 0px;
   font-family: 'Orbitron', sans-serif;
   text-align: center;
   color: #208c8c;
 }
 
 .basicInfoShow {
-  margin-top: 15px;
   text-align: center;
 }
 
@@ -257,3 +273,46 @@ justify-content: center;
 
 /* dashboard */
 
+.dashboard {
+  display: flex;
+  justify-content: center;
+  /* make consistent with game lists margin top */
+  margin-top: 15px;
+}
+
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  width:350px;
+}
+
+.newList {
+  align-self: flex-end;
+}
+
+.dashboardList > h2 {
+margin: 16px 0px 8px 0px;
+color:#208c8c
+}
+
+.dashboardList > p {
+margin: 0px;
+color: #cae9ea;
+}
+
+/* form pages */
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #cae9ea;
+}
+
+div > input[type="text"] {
+  outline: none;
+  background-color : #2D3A3A;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 481px) {}
