@@ -350,31 +350,6 @@ div>input[type="text"] {
     border-radius: 5px;
   }
 
-  .result {
-    width: 350px;
-    height: 300px;
-    border-radius: 25px;
-    margin-top: 20px;
-  }
-
-  .searchImg {
-    height: 200px;
-    width: 350px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-  }
-
-  .released {
-    margin: 5px 5px 3px 0px;
-    font-size: 12px;
-  }
-
-  .searchGenres {
-    margin-top: 9px;
-    width: 250px;
-    font-size: 12px;
-  }
-
   /* collection display */
 
   .listTitle {
@@ -514,28 +489,7 @@ div>input[type="text"] {
   }
 
   .result {
-    width: 350px;
-    height: 300px;
-    border-radius: 25px;
     margin: 20px 10px 0px 10px;
-  }
-
-  .searchImg {
-    height: 200px;
-    width: 350px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-  }
-
-  .released {
-    margin: 5px 5px 3px 0px;
-    font-size: 12px;
-  }
-
-  .searchGenres {
-    margin-top: 9px;
-    width: 250px;
-    font-size: 12px;
   }
 
   /* collection display */
@@ -639,6 +593,288 @@ div>input[type="text"] {
 
   .dashboardList>h2 {
     margin: 16px 0px 8px 0px;
+  }
+
+  /* form pages */
+
+  .playerInfoImg {
+    width: 500px;
+    height: 340px;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+  /* can delete */
+  .contentWidth {
+    width: 1110px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  /* header */
+
+  .navbar>* {
+    width: 150px;
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  /* search page */
+
+  .search>input[type="text"] {
+    width: 200px;
+    padding: 4px;
+    border-radius: 7px;
+  }
+
+  .search>button {
+    margin-top: 8px;
+    border-radius: 7px;
+    font-size: 14px;
+    width: 80px;
+    padding: 4px;
+  }
+
+
+  /* collection display */
+
+  .listTitle {
+    margin: 0px 0px 15px 0px;
+    font-size: 28px;
+  }
+
+  .listItem {
+    margin-bottom: 18px;
+    width: 800px;
+    height: 230px;
+  }
+
+  .item {
+    width: 748px;
+  }
+
+  .item>img {
+    width: 335px;
+    height: 230px;
+  }
+
+  .gameInfo {
+    margin-left: 15px;
+    height: 170px;
+  }
+
+  .gameInfo>* {
+    margin: 0px 0px 10px 0px;
+    font-size: 25px;
+  }
+
+  .gameInfo>p {
+    font-size: 16px;
+  }
+
+  .removeImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* show page */
+
+  .show {
+    font-size: 22px;
+  }
+
+  .heading {
+    margin: 8px 0px 16px 0px;
+  }
+
+  .basicInfoShow>img {
+    width: 500px;
+    height: 340px;
+  }
+
+  .basicInfoShow>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .playerInfo>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .ratings {
+    height: 25.5px;
+  }
+
+  .ratings>* {
+    margin: 0px 8px 0px 8px;
+  }
+
+  .gameInfoShow {
+    width: 600px;
+  }
+
+  .gameInfoShow>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .collectionOptions {
+    margin: 10px 0px 10px 0px;
+  }
+
+  .collectionOptions>* {
+    margin: 0px 5px 0px 5px;
+  }
+
+  /* dashboard */
+
+  .dashboard {
+    margin: 20px 0px 20px 0px;
+  }
+
+  .dashboardContent {
+    width: 800px;
+    font-size: 22px;
+  }
+
+  .dashboardList>h2 {
+    margin: 25px 0px 0px 0px;
+  }
+
+  /* form pages */
+
+  .playerInfoImg {
+    width: 500px;
+    height: 340px;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+
+  /* can delete */
+  .contentWidth {
+    width: 1500px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  /* search page */
+
+  .search>input[type="text"] {
+    width: 250px;
+    padding: 4px;
+    border-radius: 7px;
+  }
+
+  .search>button {
+    margin-top: 8px;
+    border-radius: 7px;
+    font-size: 16px;
+    width: 80px;
+    padding: 4px;
+  }
+
+
+  /* collection display */
+
+  .listTitle {
+    margin: 0px 0px 15px 0px;
+    font-size: 28px;
+  }
+
+  .listItem {
+    margin-bottom: 18px;
+    width: 800px;
+    height: 230px;
+  }
+
+  .item {
+    width: 748px;
+  }
+
+  .item>img {
+    width: 335px;
+    height: 230px;
+  }
+
+  .gameInfo {
+    margin-left: 15px;
+    height: 170px;
+  }
+
+  .gameInfo>* {
+    margin: 0px 0px 10px 0px;
+    font-size: 25px;
+  }
+
+  .gameInfo>p {
+    font-size: 16px;
+  }
+
+  .removeImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* show page */
+
+  .show {
+    font-size: 22px;
+  }
+
+  .heading {
+    margin: 8px 0px 16px 0px;
+  }
+
+  .basicInfoShow>img {
+    width: 500px;
+    height: 340px;
+  }
+
+  .basicInfoShow>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .playerInfo>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .ratings {
+    height: 25.5px;
+  }
+
+  .ratings>* {
+    margin: 0px 8px 0px 8px;
+  }
+
+  .gameInfoShow {
+    width: 600px;
+  }
+
+  .gameInfoShow>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .collectionOptions {
+    margin: 10px 0px 10px 0px;
+  }
+
+  .collectionOptions>* {
+    margin: 0px 5px 0px 5px;
+  }
+
+  /* dashboard */
+
+  .dashboard {
+    margin: 20px 0px 20px 0px;
+  }
+
+  .dashboardContent {
+    width: 600px;
+    font-size: 22px;
+  }
+
+  .dashboardList>h2 {
+    margin: 25px 0px 0px 0px;
   }
 
   /* form pages */
