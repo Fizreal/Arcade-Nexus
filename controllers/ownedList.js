@@ -99,7 +99,6 @@ const showOwned = async (req, res) => {
     .indexOf(parseInt(req.params.id))
   let gameObj = gameObjects[idx]
 
-  console.log(gameObjects, idx, gameObj)
   res.render('dashboards/showOwned', { gameObj })
 }
 
@@ -140,4 +139,10 @@ const update = async (req, res) => {
   }
 }
 
-module.exports = { add: updateList, remove, showOwned, edit, update }
+module.exports = {
+  add: updateList,
+  remove,
+  showOwned,
+  edit,
+  update
+}

@@ -25,12 +25,12 @@ a {
 
 /* header */
 
-header > * {
+header>* {
   width: 100vw;
   text-align: center;
 }
 
-header > h1 {
+header>h1 {
   margin: 0px;
   padding: 10px 0px 10px 0px;
   font-family: 'Audiowide', cursive;
@@ -44,7 +44,7 @@ header > h1 {
   background-color: #2D3A3A;
 }
 
-.navbar > * {
+.navbar>* {
   width: 110px;
   padding: 4px;
   color: #208c8c;
@@ -52,7 +52,7 @@ header > h1 {
   font-family: 'Orbitron', sans-serif;
 }
 
-.navbar > *:hover {
+.navbar>*:hover {
   background-color: rgb(29, 29, 29, 0.6);
 }
 
@@ -64,15 +64,15 @@ header > h1 {
   align-items: center;
 }
 
-.search > input[type="text"] {
+.search>input[type="text"] {
   width: 150px;
   padding: 2px;
   border-radius: 5px;
   outline: none;
-  background-color : #2D3A3A;
+  background-color: #2D3A3A;
 }
 
-.search > button {
+.search>button {
   margin-top: 5px;
   border-radius: 5px;
   border: none;
@@ -81,15 +81,15 @@ header > h1 {
   background-color: #cae9ea;
 }
 
-.search > button:hover {
+.search>button:hover {
   color: #272727;
   background-color: #208c8c;
 }
 
 .results {
-display: flex;
-flex-flow: row wrap;
-justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .result {
@@ -107,7 +107,7 @@ justify-content: center;
   align-items: center;
 }
 
-.resultContainer > * {
+.resultContainer>* {
   margin: 0;
   color: #cae9ea;
   font-family: 'Orbitron', sans-serif;
@@ -147,7 +147,7 @@ justify-content: center;
   flex-direction: column;
 }
 
-.deleteList > button {
+.deleteList>button {
   align-self: flex-end;
 }
 
@@ -171,7 +171,7 @@ justify-content: center;
   width: 325px;
 }
 
-.item > img {
+.item>img {
   width: 150px;
   height: 100px;
 }
@@ -181,19 +181,21 @@ justify-content: center;
   height: 100px;
 }
 
-.gameInfo > * {
+.gameInfo>* {
   margin: 0px 0px 5px 0px;
   font-family: 'Orbitron', sans-serif;
   font-size: 15px;
   color: #cae9ea;
 }
-.gameInfo > p {
+
+.gameInfo>p {
   font-size: 12px;
 }
 
 .removeGame {
   align-self: center;
 }
+
 .removeButton {
   background-color: #3c4748;
   border: none;
@@ -213,6 +215,7 @@ justify-content: center;
   margin-bottom: 20px;
   color: #cae9ea;
 }
+
 .heading {
   margin: 0px 0px 16px 0px;
   font-family: 'Orbitron', sans-serif;
@@ -224,16 +227,16 @@ justify-content: center;
   text-align: center;
 }
 
-.basicInfoShow > img {
+.basicInfoShow>img {
   width: 300px;
   height: 200px;
 }
 
-.basicInfoShow > * {
+.basicInfoShow>* {
   margin: 0px 0px 8px 0px;
 }
 
-.playerInfo > * {
+.playerInfo>* {
   margin: 0px 0px 8px 0px;
 }
 
@@ -244,7 +247,7 @@ justify-content: center;
   height: 18px;
 }
 
-.ratings > * {
+.ratings>* {
   margin: 0px 8px 0px 8px;
 }
 
@@ -252,7 +255,8 @@ justify-content: center;
   width: 350px;
   height: auto;
 }
-.gameInfoShow > * {
+
+.gameInfoShow>* {
   margin: 0px 0px 8px 0px;
 }
 
@@ -261,13 +265,13 @@ justify-content: center;
 }
 
 .collectionOptions {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 10px 0px 10px 0px;
 }
 
-.collectionOptions > * {
+.collectionOptions>* {
   margin: 0px 5px 0px 5px;
 }
 
@@ -276,28 +280,27 @@ justify-content: center;
 .dashboard {
   display: flex;
   justify-content: center;
-  /* make consistent with game lists margin top */
   margin-top: 15px;
 }
 
 .dashboardContent {
   display: flex;
   flex-direction: column;
-  width:350px;
+  width: 350px;
 }
 
 .newList {
   align-self: flex-end;
 }
 
-.dashboardList > h2 {
-margin: 16px 0px 8px 0px;
-color:#208c8c
+.dashboardList>h2 {
+  margin: 16px 0px 8px 0px;
+  color: #208c8c
 }
 
-.dashboardList > p {
-margin: 0px;
-color: #cae9ea;
+.dashboardList>p {
+  margin: 0px;
+  color: #cae9ea;
 }
 
 /* form pages */
@@ -309,10 +312,177 @@ color: #cae9ea;
   color: #cae9ea;
 }
 
-div > input[type="text"] {
+div>input[type="text"] {
   outline: none;
-  background-color : #2D3A3A;
-  margin-bottom: 10px;
+  background-color: #2D3A3A;
 }
 
-@media only screen and (min-width: 481px) {}
+.playerInfoImg {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 481px) {
+
+  /* can delete */
+  .contentWidth {
+    width: 400px;
+    margin-top: 15px;
+  }
+
+  /* header */
+
+  .navbar>* {
+    width: 130px;
+    font-size: 14px;
+  }
+
+  /* search page */
+
+  .search>input[type="text"] {
+    width: 150px;
+    padding: 2px;
+    border-radius: 5px;
+  }
+
+  .search>button {
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+
+  .result {
+    width: 350px;
+    height: 300px;
+    border-radius: 25px;
+    margin-top: 20px;
+  }
+
+  .searchImg {
+    height: 200px;
+    width: 350px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+
+  .released {
+    margin: 5px 5px 3px 0px;
+    font-size: 12px;
+  }
+
+  .searchGenres {
+    margin-top: 9px;
+    width: 250px;
+    font-size: 12px;
+  }
+
+  /* collection display */
+
+  .listTitle {
+    margin: 0px 0px 12px 0px;
+    font-size: 24px;
+  }
+
+  .listItem {
+    margin-bottom: 15px;
+    width: 400px;
+    height: 115px;
+  }
+
+  .item {
+    width: 365px;
+  }
+
+  .item>img {
+    width: 170px;
+    height: 115px;
+  }
+
+  .gameInfo {
+    margin-left: 8px;
+    height: 115px;
+  }
+
+  .gameInfo>* {
+    margin: 0px 0px 5px 0px;
+    font-size: 18px;
+  }
+
+  .gameInfo>p {
+    font-size: 14px;
+  }
+
+  .removeImg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* show page */
+
+  .show {
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    margin: 0px 0px 16px 0px;
+  }
+
+  .basicInfoShow>img {
+    width: 400px;
+    height: 270px;
+  }
+
+  .basicInfoShow>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .playerInfo>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .ratings {
+    height: 18px;
+  }
+
+  .ratings>* {
+    margin: 0px 8px 0px 8px;
+  }
+
+  .gameInfoShow {
+    width: 400px;
+  }
+
+  .gameInfoShow>* {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .collectionOptions {
+    margin: 10px 0px 10px 0px;
+  }
+
+  .collectionOptions>* {
+    margin: 0px 5px 0px 5px;
+  }
+
+  /* dashboard */
+
+  .dashboard {
+    margin-top: 15px;
+  }
+
+  .dashboardContent {
+    width: 400px;
+  }
+
+  .dashboardList>h2 {
+    margin: 16px 0px 8px 0px;
+  }
+
+  /* form pages */
+
+  .playerInfoImg {
+    width: 400px;
+    height: 270px;
+    margin-bottom: 5px;
+  }
+}

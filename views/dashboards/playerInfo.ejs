@@ -1,39 +1,48 @@
 <%- include('../partials/header') %>
+  <section class="show contentWidth">
+    <img class="playerInfoImg" src="<%=gameObj.game.imageURL%>" alt="<%=gameObj.game.name%>">
+    <h1 class="heading">
+      <%=gameObj.game.name%>
+    </h1>
 
-  <img src="<%=gameObj.game.imageURL%>" alt="<%=gameObj.game.name%>" width="150" height="100">
-  <h1>
-    <%=gameObj.game.name%>
-  </h1>
+    <form class="inputForm" action="/ownedlist/playerinfo/<%=gameObj.game.gameID%>?_method=PUT" method="POST">
+      <% if (gameObj.game.gameModes.includes('Multiplayer')) {%>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="playerUsername" value="<%=gameObj.playerUsername ? gameObj.playerUsername : '' %>">
+        </div>
+        <%}%>
+          <div>
+            <label for="platform">User Platform</label>
+            <select name="platform" id="platform">
+              <% gameObj.game.platforms.sort().forEach(platform=> {%>
+                <option value="<%=platform%>">
+                  <%=platform%>
+                </option>
+                <%})%>
+            </select>
+          </div>
+          <div>
+            <label for="rating">Rating</label>
+            <select name="userRating" id="rating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div>
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+              <option value="Backlog">Backlog</option>
+              <option value="Playing">Playing</option>
+              <option value="Dropped">Dropped</option>
+              <option value="Complete">Complete</option>
+            </select>
+          </div>
 
-  <form action="/ownedlist/playerinfo/<%=gameObj.game.gameID%>?_method=PUT" method="POST">
-    <% if (gameObj.game.gameModes.includes('Multiplayer')) {%>
-      <label for="username">Username</label>
-      <input type="text" name="playerUsername" value="<%=gameObj.playerUsername ? gameObj.playerUsername : '' %>"><br>
-      <%}%>
-        <label for="platform">User Platform</label>
-        <select name="platform" id="platform">
-          <% gameObj.game.platforms.sort().forEach(platform=> {%>
-            <option value="<%=platform%>">
-              <%=platform%>
-            </option>
-            <%})%>
-        </select><br>
-        <label for="rating">Rating</label>
-        <select name="userRating" id="rating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select><br>
-        <label for="status">Status:</label>
-        <select name="status" id="status">
-          <option value="Backlog">Backlog</option>
-          <option value="Playing">Playing</option>
-          <option value="Dropped">Dropped</option>
-          <option value="Complete">Complete</option>
-        </select><br>
-        <button type="submit">Update</button>
-  </form>
-
+          <button type="submit">Update</button>
+    </form>
+  </section>
   <%- include('../partials/footer') %>
