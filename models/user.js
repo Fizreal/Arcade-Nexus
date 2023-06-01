@@ -10,7 +10,6 @@ const userSchema = new Schema(
       required: true
     },
     email: String,
-    platforms: []
   },
   { timestamps: true }
 )
