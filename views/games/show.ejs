@@ -26,7 +26,7 @@
     </section>
     <section class="collectionOptions">
       <% if (user) {%>
-        <form action="" method="POST" name="addToList" onsubmit="assignRoute()">
+        <form class="inputForm" action="" method="POST" name="addToList" onsubmit="assignRoute()">
           <select name="list" id="list">
             <% if (!ownedGames.includes(game.id)) {%>
               <option value="/ownedlist/add/<%=game.id%>?_method=PUT">Owned games</option>
@@ -45,7 +45,7 @@
                               <%}%>
                                 <option value="/collection/new?_method=GET">Create new list</option>
           </select>
-          <button type="submit">Add to list</button>
+          <button class="formButton" type="submit">Add to list</button>
         </form>
         <%}%>
     </section>

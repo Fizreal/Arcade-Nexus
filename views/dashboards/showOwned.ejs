@@ -34,8 +34,8 @@
             <p>Status:
               <%=gameObj.status ? gameObj.status : '' %>
             </p>
-            <form action="/ownedlist/<%=gameObj.game.gameID%>/edit" method="GET">
-              <button type="submit">Update</button>
+            <form class="inputForm" action="/ownedlist/<%=gameObj.game.gameID%>/edit" method="GET">
+              <button class="formButton" type="submit">Update</button>
             </form>
     </section>
     <section class="gameInfoShow">
