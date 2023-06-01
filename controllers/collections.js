@@ -22,7 +22,6 @@ const create = async (req, res) => {
 }
 
 const deleteCollection = async (req, res) => {
-  console.log(req.params.id)
   try {
     await Collection.findByIdAndDelete(req.params.id)
     res.redirect('/dashboard')
@@ -78,7 +77,6 @@ const updateList = async (req, res) => {
 
     game = await Game.create(req.body)
   }
-  console.log(req.body.owned)
   try {
     if (!collection.games.includes(game._id)) collection.games.push(game._id)
     await collection.save()

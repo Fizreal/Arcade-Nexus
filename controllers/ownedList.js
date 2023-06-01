@@ -79,7 +79,6 @@ const remove = async (req, res) => {
   let idx = gameObjects
     .map((el) => el.game.gameID)
     .indexOf(parseInt(req.params.id))
-  console.log(req.body.redirect)
   try {
     ownedList.games.splice(idx, 1)
     await ownedList.save()
@@ -99,7 +98,6 @@ const showOwned = async (req, res) => {
     .map((el) => el.game.gameID)
     .indexOf(parseInt(req.params.id))
   let gameObj = gameObjects[idx]
-    console.log(gameObj)
   let collections = await Collection.find({ user: req.user._id }).populate(
     'games'
   )

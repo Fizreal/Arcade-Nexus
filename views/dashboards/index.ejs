@@ -3,46 +3,59 @@
     <section class="dashboardContent">
       <a class="newList" href="/collection/new"><button>New list</button></a>
       <a href="/dashboard/owned">
-        <section class="dashboardList">
-          <h2>Owned Games</h2>
-          <p>
-            <%= ownedList.games.length%> games
-          </p>
+        <section class="listContainer">
+          <img src="<%=ownedList.games.length ? ownedList.games[0].game.imageURL : '/images/no-image.png'%>" alt="">
+          <section class="dashboardList">
+            <h2>Owned Games</h2>
+            <p>
+              <%= ownedList.games.length%> games
+            </p>
+          </section>
         </section>
       </a>
       <% if (backlog.length) {%>
         <a href="/dashboard/backlog">
-          <section class="dashboardList">
-            <h2>Backlog</h2>
-            <p>
-              <%= backlog.length%> games
-            </p>
-            <p>
-              <%= backlog.reduce((acc, gameObj)=> acc + gameObj.game.playtime, 0)%> hours
-            </p>
+          <section class="listContainer">
+            <img src="<%=backlog.length ? backlog[0].game.imageURL : '/images/no-image.png'%>" alt="">
+            <section class="dashboardList">
+              <h2>Backlog</h2>
+              <p>
+                <%= backlog.length%> games
+              </p>
+              <p>
+                <%= backlog.reduce((acc, gameObj)=> acc + gameObj.game.playtime, 0)%> hours
+              </p>
+            </section>
           </section>
         </a>
         <%}%>
 
           <a href="/dashboard/wishlist">
-            <section class="dashboardList">
-              <h2>Wish List</h2>
-              <p>
-                <%= wishList.games.length%> games
-              </p>
+            <section class="listContainer">
+              <img src="<%=wishList.games.length ? wishList.games[0].imageURL : '/images/no-image.png'%>" alt="">
+              <section class="dashboardList">
+                <h2>Wish List</h2>
+                <p>
+                  <%= wishList.games.length%> games
+                </p>
+              </section>
             </section>
           </a>
 
           <% if (collections.length) {%>
             <% collections.forEach(collection=> {%>
               <a href="/dashboard/<%=collection._id%>">
-                <section class="dashboardList">
-                  <h2>
-                    <%=collection.name%>
-                  </h2>
-                  <p>
-                    <%= collection.games.length%> games
-                  </p>
+                <section class="listContainer">
+                  <img src="<%=collection.games.length ? collection.games[0].imageURL : '/images/no-image.png'%>"
+                    alt="">
+                  <section class="dashboardList">
+                    <h2>
+                      <%=collection.name%>
+                    </h2>
+                    <p>
+                      <%= collection.games.length%> games
+                    </p>
+                  </section>
                 </section>
               </a>
               <%})%>

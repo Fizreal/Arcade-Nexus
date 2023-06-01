@@ -317,6 +317,18 @@ select {
 
 .newList {
   align-self: flex-end;
+  margin-bottom: 15px;
+}
+
+.listContainer {
+  display: flex;
+  margin: 0px 0px 15px 0px;
+}
+
+.listContainer>img {
+  width: 150px;
+  height: 100px;
+  margin-right: 5px;
 }
 
 .dashboardList>h2 {
