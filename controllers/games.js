@@ -33,7 +33,6 @@ const show = async (req, res) => {
       'games'
     )
   }
-  console.log(collections)
   res.render('games/show', { game, ownedGames, wishListGames, collections })
 }
 

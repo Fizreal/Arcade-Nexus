@@ -38,6 +38,26 @@
               <button class="formButton" type="submit">Update</button>
             </form>
     </section>
+    <section class="collectionOptions">
+      <% if (collections) {%>
+        <form class="inputForm" action="" method="POST" name="addToList" onsubmit="assignRoute()">
+          <input type="hidden" name="owned" value="true">
+          <select name="list" id="list">
+            <%if (collections) {%>
+              <% collections.forEach(collection=> {%>
+                <% if (!collection.games.map(gameObj=> gameObj.gameID).includes(gameObj.game.gameID)) {%>
+                  <option value="/collection/add/<%=collection._id%>/<%=gameObj.game.gameID%>?_method=PUT">
+                    <%=collection.name%>
+                  </option>
+                  <%}%>
+                    <%})%>
+                      <%}%>
+                        <option value="/collection/new?_method=GET">Create new list</option>
+          </select>
+          <button class="formButton" type="submit">Add to list</button>
+        </form>
+        <%}%>
+    </section>
     <section class="gameInfoShow">
       <h3 class="heading">About</h3>
       <p>

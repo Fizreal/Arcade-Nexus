@@ -78,14 +78,22 @@ const updateList = async (req, res) => {
 
     game = await Game.create(req.body)
   }
-
+  console.log(req.body.owned)
   try {
     if (!collection.games.includes(game._id)) collection.games.push(game._id)
     await collection.save()
-    res.redirect(`/games/${req.params.gameId}`)
+    if (req.body.owned) {
+      res.redirect(`/ownedlist/${req.params.gameId}`)
+    } else{
+      res.redirect(`/games/${req.params.gameId}`)
+    }
   } catch (err) {
     console.log(err)
-    res.redirect(`/games/${req.params.gameId}`)
+    if (req.body.owned) {
+      res.redirect(`/ownedlist/${req.params.gameId}`)
+    } else{
+      res.redirect(`/games/${req.params.gameId}`)
+    }
   }
 }
 

@@ -4,6 +4,7 @@ const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
 const OwnedList = require('../models/ownedList')
 const WishList = require('../models/wishList')
+const Collection = require('../models/collection')
 const Game = require('../models/game')
 
 const updateList = async (req, res) => {
@@ -98,8 +99,12 @@ const showOwned = async (req, res) => {
     .map((el) => el.game.gameID)
     .indexOf(parseInt(req.params.id))
   let gameObj = gameObjects[idx]
+    console.log(gameObj)
+  let collections = await Collection.find({ user: req.user._id }).populate(
+    'games'
+  )
 
-  res.render('dashboards/showOwned', { gameObj })
+  res.render('dashboards/showOwned', { gameObj, collections })
 }
 
 const edit = async (req, res) => {
