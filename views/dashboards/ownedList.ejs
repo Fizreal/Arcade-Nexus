@@ -1,21 +1,34 @@
 <%- include('../partials/header') %>
   <section class="contentWidth">
-    <h1 class="listTitle">Owned Games</h1>
-    <section class="gamesList">
-      <% ownedList.games.forEach(gameObj=> {%>
-        <section class="listItem">
-          <a class="item" href="/ownedlist/<%=gameObj.game.gameID%>">
-            <img src="<%=gameObj.game.imageURL%>">
-            <div class="gameInfo">
-              <h1>
-                <%=gameObj.game.name%>
-              </h1>
-              <p>
-                <%= gameObj.game.genres.join(', ') %>
+    <h1 class="listTitle">
+      <%= backlog ? 'Game Backlog' : 'Owned Games' %>
+    </h1>
+    <% if (backlog) {%>
+      <h2>
+        <%=backlog%> hours of gameplay
+      </h2>
+      <%}%>
+        <section class="gamesList">
+          <% ownedList.forEach(gameObj=> {%>
+            <section class="listItem">
+              <a class="item" href="/ownedlist/<%=gameObj.game.gameID%>">
+                <img src="<%=gameObj.game.imageURL%>">
+                <div class="gameInfo">
+                  <h1>
+                    <%=gameObj.game.name%>
+                  </h1>
+                  <p>
+                    <%= gameObj.game.genres.join(', ') %>
             </p>
-            <p>Status:
-              <%= gameObj.status %>
-            </p>
+            <% if (backlog) {%> 
+              <p>Average playtime:
+                <%= gameObj.game.playtime %> hours
+              </p>
+              <%} else {%>
+                <p>Status:
+                  <%= gameObj.status %>
+                </p> 
+            <%}%>
           </div>
         </a>
         <form class="removeGame" action="/ownedlist/remove/<%=gameObj.game.gameID%>?_method=PUT" method="POST">

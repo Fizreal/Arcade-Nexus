@@ -7,17 +7,31 @@ const WishList = require('../models/wishList')
 const Collection = require('../models/collection')
 
 const index = async (req, res) => {
-  const ownedList = await OwnedList.findOne({ user: req.user._id })
+  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate('games.game')
   const wishList = await WishList.findOne({ user: req.user._id })
   const collections = await Collection.find({ user: req.user._id })
-  res.render('dashboards', { ownedList, wishList, collections })
+  let backlog = ownedList.games.filter(gameObject => gameObject.status === 'Backlog')
+  res.render('dashboards', { ownedList, backlog, wishList, collections })
 }
+
 const owned = async (req, res) => {
-  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
+  const ownedGames = await OwnedList.findOne({ user: req.user._id }).populate(
     'games.game'
   )
-  res.render('dashboards/ownedList', { ownedList })
+  let backlog
+  let ownedList = ownedGames.games
+  res.render('dashboards/ownedList', { ownedList, backlog })
 }
+
+const backlog = async (req, res) => {
+  const ownedGames = await OwnedList.findOne({ user: req.user._id }).populate(
+    'games.game'
+  )
+  let ownedList = ownedGames.games.filter(gameObject => gameObject.status === 'Backlog')
+  let backlog = ownedList.reduce((acc, gameObj)=> acc + gameObj.game.playtime, 0)
+  res.render('dashboards/ownedList', { ownedList, backlog })
+}
+
 const wishList = async (req, res) => {
   const wishList = await WishList.findOne({ user: req.user._id }).populate(
     'games'
@@ -32,4 +46,4 @@ const collection = async (req, res) => {
   res.render('dashboards/collectionList', { collection })
 }
 
-module.exports = { index, owned, wishList, collection }
+module.exports = { index, owned, backlog, wishList, collection }

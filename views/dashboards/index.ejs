@@ -10,30 +10,43 @@
           </p>
         </section>
       </a>
+      <% if (backlog.length) {%>
+        <a href="/dashboard/backlog">
+          <section class="dashboardList">
+            <h2>Backlog</h2>
+            <p>
+              <%= backlog.length%> games
+            </p>
+            <p>
+              <%= backlog.reduce((acc, gameObj)=> acc + gameObj.game.playtime, 0)%> hours
+            </p>
+          </section>
+        </a>
+        <%}%>
 
-      <a href="/dashboard/wishlist">
-        <section class="dashboardList">
-          <h2>Wish List</h2>
-          <p>
-            <%= wishList.games.length%> games
-          </p>
-        </section>
-      </a>
-
-      <% if (collections.length) {%>
-        <% collections.forEach(collection=> {%>
-          <a href="/dashboard/<%=collection._id%>">
+          <a href="/dashboard/wishlist">
             <section class="dashboardList">
-              <h2>
-                <%=collection.name%>
-              </h2>
+              <h2>Wish List</h2>
               <p>
-                <%= collection.games.length%> games
+                <%= wishList.games.length%> games
               </p>
             </section>
           </a>
-          <%})%>
-            <%}%>
+
+          <% if (collections.length) {%>
+            <% collections.forEach(collection=> {%>
+              <a href="/dashboard/<%=collection._id%>">
+                <section class="dashboardList">
+                  <h2>
+                    <%=collection.name%>
+                  </h2>
+                  <p>
+                    <%= collection.games.length%> games
+                  </p>
+                </section>
+              </a>
+              <%})%>
+                <%}%>
     </section>
   </section>
   <%- include('../partials/footer') %>
