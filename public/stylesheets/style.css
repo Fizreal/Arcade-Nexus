@@ -448,7 +448,6 @@ button:hover {
   }
 
   .gameInfo>* {
-    margin: 0px 0px 5px 0px;
     font-size: 18px;
   }
 
@@ -463,37 +462,13 @@ button:hover {
 
   /* show page */
 
-  .heading {
-    margin: 0px 0px 16px 0px;
-  }
-
   .basicInfoShow>img {
     width: 400px;
     height: 270px;
   }
 
-  .basicInfoShow>* {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .playerInfo>* {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .ratings {
-    height: 18px;
-  }
-
-  .ratings>* {
-    margin: 0px 8px 0px 8px;
-  }
-
   .gameInfoShow {
     width: 400px;
-  }
-
-  .gameInfoShow>* {
-    margin: 0px 0px 8px 0px;
   }
 
   .collectionOptions {
@@ -536,7 +511,6 @@ button:hover {
 
 @media only screen and (min-width: 769px) {
 
-  /* can delete */
   .contentWidth {
     width: 740px;
     margin: 20px 0px 20px 0px;
@@ -600,7 +574,6 @@ button:hover {
   }
 
   .gameInfo>* {
-    margin: 0px 0px 5px 0px;
     font-size: 20px;
   }
 
@@ -628,23 +601,11 @@ button:hover {
     height: 340px;
   }
 
-  .basicInfoShow>* {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .playerInfo>* {
-    margin: 0px 0px 8px 0px;
-  }
-
   .ratings {
     height: 22px;
   }
 
-  .ratings>* {
-    margin: 0px 8px 0px 8px;
-  }
-
-  .gameInfoShow {
+  Show {
     width: 500px;
   }
 
@@ -702,10 +663,8 @@ button:hover {
 
 @media only screen and (min-width: 1200px) {
 
-  /* can delete */
   .contentWidth {
     width: 1110px;
-    margin: 20px 0px 20px 0px;
   }
 
   .index {
@@ -761,16 +720,11 @@ button:hover {
 
   .gameInfo {
     margin-left: 15px;
-    height: 170px;
   }
 
   .gameInfo>* {
     margin: 0px 0px 10px 0px;
     font-size: 25px;
-  }
-
-  .gameInfo>p {
-    font-size: 16px;
   }
 
   .removeImg {
@@ -784,37 +738,17 @@ button:hover {
     font-size: 22px;
   }
 
-  .heading {
-    margin: 8px 0px 16px 0px;
-  }
-
   .basicInfoShow>img {
     width: 500px;
     height: 340px;
-  }
-
-  .basicInfoShow>* {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .playerInfo>* {
-    margin: 0px 0px 8px 0px;
   }
 
   .ratings {
     height: 25.5px;
   }
 
-  .ratings>* {
-    margin: 0px 8px 0px 8px;
-  }
-
   .gameInfoShow {
     width: 600px;
-  }
-
-  .gameInfoShow>* {
-    margin: 0px 0px 8px 0px;
   }
 
   .collectionOptions {
@@ -857,10 +791,8 @@ button:hover {
 
 @media only screen and (min-width: 1500px) {
 
-  /* can delete */
   .contentWidth {
     width: 1500px;
-    margin: 20px 0px 20px 0px;
   }
 
   /* search page */
@@ -880,11 +812,6 @@ button:hover {
   }
 
   /* collection display */
-
-  .listTitle {
-    margin: 0px 0px 15px 0px;
-    font-size: 28px;
-  }
 
   .backlogTitle {
     margin: 0px 0px 15px 0px;
@@ -907,61 +834,14 @@ button:hover {
   }
 
   .gameInfo {
-    margin-left: 15px;
     height: 170px;
-  }
-
-  .gameInfo>* {
-    margin: 0px 0px 10px 0px;
-    font-size: 25px;
-  }
-
-  .gameInfo>p {
-    font-size: 16px;
-  }
-
-  .removeImg {
-    width: 40px;
-    height: 40px;
   }
 
   /* show page */
 
-  .show {
-    font-size: 22px;
-  }
-
-  .heading {
-    margin: 8px 0px 16px 0px;
-  }
-
   .basicInfoShow>img {
     width: 500px;
     height: 340px;
-  }
-
-  .basicInfoShow>* {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .playerInfo>* {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .ratings {
-    height: 25.5px;
-  }
-
-  .ratings>* {
-    margin: 0px 8px 0px 8px;
-  }
-
-  .gameInfoShow {
-    width: 600px;
-  }
-
-  .gameInfoShow>* {
-    margin: 0px 0px 8px 0px;
   }
 
   .collectionOptions {

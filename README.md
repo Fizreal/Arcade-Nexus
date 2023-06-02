@@ -18,38 +18,68 @@ Arcade Nexus is a website for video game hobbyists to search for games, track th
 
 #### **_Technologies Used_**
 
--Node.js
--Express
--Mongoose
--MongoDB
--OAuth
--EJS
--Insomnia
+- Node.js
+- Express
+- Mongoose
+- MongoDB
+- Auth
+- EJS
+- Insomnia
 
 ---
 
 #### **_Getting Started_**
 
+Navigating to the [website]() you can browse and find information on thousands of games without an account. 
+
+Signing in with your google account will provide full access to the sites features, including the user dashboard, the ability to create new lists of games, or updating user specific information on owned games (rating, platform used, game status, etc).
+
 ---
 
 #### **_Screenshots_**
 
-**placeholder**
+**Search page - widescreen**
 
-![Image]()
+![Imgur](https://i.imgur.com/evORLZj.jpg)
 
-**placeholder**
+**User dashboard - mobile**
 
-![Image]()
+![Imgur](https://i.imgur.com/p7Fg4t7.png)
 
-**placeholder**
+**List view - 769px view**
 
-![Image]()
+![Imgur](https://i.imgur.com/9vfalv5.png)
+
+**Game detail - mobile**
+
+![Imgur](https://i.imgur.com/Hb015RF.png)
 
 ---
 
 #### **_Task List_**
 
+- [x] Deploy MVP
+  - [x] Create data models
+  - [x] Enable Oauth authentication
+  - [x] Add API search routes/controllers
+  - [x] Create user dashboard
+    - [x] Owned games
+    - [x] Wish list
+    - [x] Users can create new lists
+    - [x] Mobile-first responsive design
+- [x] Add game 'Backlog' collection
+- [ ] Friend requests
+- [ ] Game recommendations
+- [ ] Order game backlog
+
 ---
 
 #### **_Credits_**
+
+**RAWG API**: [RAWG](https://rawg.io/)
+
+**Google fonts**: 
+- [Audiowide](https://fonts.google.com/specimen/Audiowide?query=audiow)
+- [Orbitron](https://fonts.google.com/specimen/Orbitron?query=orbi)
+
+**Flaticon**: [Minus sign](https://www.flaticon.com/free-icons/minus)
