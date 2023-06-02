@@ -323,6 +323,7 @@ select {
 .listContainer {
   display: flex;
   margin: 0px 0px 15px 0px;
+  height: 100px;
 }
 
 .listContainer>img {
@@ -332,7 +333,7 @@ select {
 }
 
 .dashboardList>h2 {
-  margin: 16px 0px -4px 0px;
+  margin: 0px;
   color: #208c8c
 }
 
@@ -513,6 +514,17 @@ button:hover {
     width: 400px;
   }
 
+  .listContainer {
+    height: 115px;
+    margin: 0px 0px 15px 0px;
+  }
+
+  .listContainer>img {
+    width: 170px;
+    height: 115px;
+    margin-right: 8px;
+  }
+
   /* form pages */
 
   .playerInfoImg {
@@ -657,6 +669,16 @@ button:hover {
   .dashboardContent {
     width: 500px;
     font-size: 18px;
+  }
+
+  .listContainer {
+    height: 170px;
+  }
+
+  .listContainer>img {
+    width: 250px;
+    height: 170px;
+    margin-right: 10px;
   }
 
   /* form pages */
@@ -814,8 +836,14 @@ button:hover {
     font-size: 22px;
   }
 
-  .dashboardList>h2 {
-    margin: 25px 0px -4px 0px;
+  .listContainer {
+    height: 230px;
+  }
+
+  .listContainer>img {
+    width: 335px;
+    height: 230px;
+    margin-right: 15px;
   }
 
   /* form pages */

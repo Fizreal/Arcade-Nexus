@@ -11,7 +11,6 @@ const index = async (req, res) => {
   const wishList = await WishList.findOne({ user: req.user._id }).populate('games')
   const collections = await Collection.find({ user: req.user._id }).populate('games')
   let backlog = ownedList.games.filter(gameObject => gameObject.status === 'Backlog')
-  console.log(collections)
   res.render('dashboards', { ownedList, backlog, wishList, collections })
 }
 
