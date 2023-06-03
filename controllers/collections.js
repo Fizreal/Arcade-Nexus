@@ -99,8 +99,8 @@ const remove = async (req, res) => {
   let collection = await Collection.findOne({
     _id: req.params.collectionId,
     user: req.user._id
-  })
-  let idx = collection.games.indexOf(parseInt(req.params.gameId))
+  }).populate('games')
+  let idx = collection.games.map(el => el.gameID).indexOf(parseInt(req.params.gameId))
 
   try {
     collection.games.splice(idx, 1)

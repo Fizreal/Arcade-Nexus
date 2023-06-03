@@ -60,8 +60,8 @@ const updateList = async (req, res) => {
 }
 
 const remove = async (req, res) => {
-  let wishList = await WishList.findOne({ user: req.user._id })
-  let idx = wishList.games.indexOf(parseInt(req.params.id))
+  let wishList = await WishList.findOne({ user: req.user._id }).populate('games')
+  let idx = wishList.games.map(el => el.gameID).indexOf(parseInt(req.params.id))
 
   try {
     wishList.games.splice(idx, 1)
