@@ -2,7 +2,7 @@ const axios = require('axios')
 const API_KEY = process.env.RAWG_KEY
 const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
-const WishList = require('../models/wishList')
+const WishList = require('../models/wishlist')
 const Game = require('../models/game')
 
 const updateList = async (req, res) => {
@@ -60,8 +60,12 @@ const updateList = async (req, res) => {
 }
 
 const remove = async (req, res) => {
-  let wishList = await WishList.findOne({ user: req.user._id }).populate('games')
-  let idx = wishList.games.map(el => el.gameID).indexOf(parseInt(req.params.id))
+  let wishList = await WishList.findOne({ user: req.user._id }).populate(
+    'games'
+  )
+  let idx = wishList.games
+    .map((el) => el.gameID)
+    .indexOf(parseInt(req.params.id))
 
   try {
     wishList.games.splice(idx, 1)

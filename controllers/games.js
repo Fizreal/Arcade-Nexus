@@ -3,7 +3,7 @@ const API_KEY = process.env.RAWG_KEY
 const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
 const OwnedList = require('../models/ownedList')
-const WishList = require('../models/wishList')
+const WishList = require('../models/wishlist')
 const Collection = require('../models/collection')
 
 const index = async (req, res) => {

@@ -3,14 +3,22 @@ const API_KEY = process.env.RAWG_KEY
 const DOMAIN = 'https://api.rawg.io/api/'
 require('dotenv').config()
 const OwnedList = require('../models/ownedList')
-const WishList = require('../models/wishList')
+const WishList = require('../models/wishlist')
 const Collection = require('../models/collection')
 
 const index = async (req, res) => {
-  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate('games.game')
-  const wishList = await WishList.findOne({ user: req.user._id }).populate('games')
-  const collections = await Collection.find({ user: req.user._id }).populate('games')
-  let backlog = ownedList.games.filter(gameObject => gameObject.status === 'Backlog')
+  const ownedList = await OwnedList.findOne({ user: req.user._id }).populate(
+    'games.game'
+  )
+  const wishList = await WishList.findOne({ user: req.user._id }).populate(
+    'games'
+  )
+  const collections = await Collection.find({ user: req.user._id }).populate(
+    'games'
+  )
+  let backlog = ownedList.games.filter(
+    (gameObject) => gameObject.status === 'Backlog'
+  )
   res.render('dashboards', { ownedList, backlog, wishList, collections })
 }
 
@@ -27,8 +35,13 @@ const backlog = async (req, res) => {
   const ownedGames = await OwnedList.findOne({ user: req.user._id }).populate(
     'games.game'
   )
-  let ownedList = ownedGames.games.filter(gameObject => gameObject.status === 'Backlog')
-  let backlog = ownedList.reduce((acc, gameObj)=> acc + gameObj.game.playtime, 0)
+  let ownedList = ownedGames.games.filter(
+    (gameObject) => gameObject.status === 'Backlog'
+  )
+  let backlog = ownedList.reduce(
+    (acc, gameObj) => acc + gameObj.game.playtime,
+    0
+  )
   res.render('dashboards/ownedList', { ownedList, backlog })
 }
 

@@ -2,7 +2,7 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('../models/user')
 const OwnedList = require('../models/ownedList')
-// const Wishlist = require('../models/wishList')
+const Wishlist = require('../models/wishlist')
 
 passport.use(
   new GoogleStrategy(
@@ -23,9 +23,9 @@ passport.use(
         await OwnedList.create({
           user: user._id
         })
-        // await Wishlist.create({
-        //   user: user._id
-        // })
+        await Wishlist.create({
+          user: user._id
+        })
         return cb(null, user)
       } catch (err) {
         return cb(err)
