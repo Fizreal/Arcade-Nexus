@@ -18,19 +18,22 @@ Arcade Nexus is a website for video game hobbyists to search for games, track th
 
 #### **_Technologies Used_**
 
+![Technologies Used](https://skillicons.dev/icons?i=nodejs,express,mongodb,js,css)
+
 - Node.js
 - Express
-- Mongoose
 - MongoDB
-- Auth
+- Javascript
+- CSS3
+- Mongoose
+- OAuth
 - EJS
-- Insomnia
 
 ---
 
 #### **_Getting Started_**
 
-Navigating to the [website]() you can browse and find information on thousands of games without an account. 
+Navigating to the [website](https://arcadenexus-78e440e9c22e.herokuapp.com/) you can browse and find information on thousands of games without an account.
 
 Signing in with your google account will provide full access to the sites features, including the user dashboard, the ability to create new lists of games, or updating user specific information on owned games (rating, platform used, game status, etc).
 
@@ -78,7 +81,8 @@ Signing in with your google account will provide full access to the sites featur
 
 **RAWG API**: [RAWG](https://rawg.io/)
 
-**Google fonts**: 
+**Google fonts**:
+
 - [Audiowide](https://fonts.google.com/specimen/Audiowide?query=audiow)
 - [Orbitron](https://fonts.google.com/specimen/Orbitron?query=orbi)
 
