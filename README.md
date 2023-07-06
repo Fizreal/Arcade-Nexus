@@ -1,7 +1,5 @@
 # Arcade-Nexus
 
-# Incan Gold
-
 ## Date: 4/12/2023
 
 ### By: Adam Buffett
